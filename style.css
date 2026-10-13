@@ -10,3 +10,6 @@
 
 /* Restore the approved character size; expand the foreground instead of shrinking heroes. */
 .battle{background-size:100% 115%;background-position:center bottom}.fighter:not(.enemy){height:24%}.fighter:not(.enemy) .sprite{height:100%;top:0}.fighter:nth-child(1){top:28%}.fighter:nth-child(2){top:51.5%}.fighter:nth-child(3){top:75%}.enemy{height:44%;top:46%}.enemy .sprite{height:110%;top:-5%}
+
+/* Shared rarity frame: character artwork stays readable within the open center. */
+.card.rarity-legend:before{content:'';position:absolute;inset:0;z-index:6;pointer-events:none;background:url('./assets/legend-frame.webp') center/100% 100% no-repeat;filter:drop-shadow(0 0 2px #ffdd6688)}.card.rarity-legend:after{content:'✦';position:absolute;right:3%;top:12%;font-size:14px;color:#fff5a0;text-shadow:0 0 4px #ffd13c;z-index:7;pointer-events:none;animation:legendShine 3.8s ease-in-out infinite}.card.rarity-legend:nth-of-type(2):after{animation-delay:1.2s}.card.rarity-legend:nth-of-type(3):after{animation-delay:2.4s}@keyframes legendShine{0%,100%{opacity:.35;scale:.7}45%{opacity:1;scale:1.15}65%{opacity:.5;scale:.8}}@media(prefers-reduced-motion:reduce){.card.rarity-legend:after{animation:none;opacity:.7}}
