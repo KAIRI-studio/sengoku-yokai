@@ -1,4 +1,4 @@
-const CACHE='sengoku-yokai-v0.1.22';
+const CACHE='sengoku-yokai-v0.1.23';
 const FILES=['./','./index.html','./style-manga-v022.css','./app-manga-v022.js','./manifest.webmanifest','./assets/icon.svg','./assets/battlefield-manga.webp','./assets/manga-ui.webp','./assets/legend-frame-gold.webp','./assets/manga-ui-gold.webp','./assets/nobunaga-idle.png','./assets/yukimura-idle.png','./assets/kenshin-idle.png','./assets/tengu-idle.png','./assets/nobunaga.png','./assets/yukimura.png','./assets/kenshin.png','./assets/nobunaga-atlas.png','./assets/yukimura-atlas.png','./assets/kenshin-atlas.png','./assets/tengu-atlas.png'];
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(FILES)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('sengoku-yokai-')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
