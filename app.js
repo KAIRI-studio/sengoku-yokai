@@ -7,7 +7,7 @@ const $=id=>document.getElementById(id);
 let party,boss,elapsed=0,last=0,paused=false,finished=false,attackAt,enemyAt,bannerTimer,battleSerial=0,enemyTurns=0;const motionTimers=new Map();
 $('fighters').innerHTML=roster.map((p,i)=>`<div class="fighter" id="${p.id}"><div class="field-bar"><i id="fieldhp-${i}"></i></div><div class="sprite ${p.id}"><div class="pose"></div></div></div>`).join('');
 const ATLAS={nobunaga:[1254,1254],yukimura:[1254,1254],kenshin:[1254,1254],tengu:[1254,1254]};
-function tile(id,index,label=''){const [w,h]=ATLAS[id],cw=w/2,ch=h/2;return `<svg viewBox="${index%2*cw} ${Math.floor(index/2)*ch} ${cw} ${ch}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="${label}"><defs><clipPath id="clip-${id}-${index}" clipPathUnits="userSpaceOnUse"><rect x="${index%2*cw}" y="${Math.floor(index/2)*ch}" width="${cw}" height="${ch}"/></clipPath></defs><image href="./assets/${id}-atlas.png" width="${w}" height="${h}" clip-path="url(#clip-${id}-${index})"/></svg>`}
+function tile(id,index,label=''){const [w,h]=ATLAS[id],cw=w/2,ch=h/2;return `<svg viewBox="${index%2*cw} ${Math.floor(index/2)*ch} ${cw} ${ch}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="${label}"><defs><clipPath id="clip-${id}-${index}" clipPathUnits="userSpaceOnUse"><rect x="${index%2*cw}" y="${Math.floor(index/2)*ch+(index>=2?(index===2&&id==='yukimura'?26:18):0)}" width="${cw}" height="${ch-(index>=2?(index===2&&id==='yukimura'?26:18):0)}"/></clipPath></defs><image href="./assets/${id}-atlas.png" width="${w}" height="${h}" clip-path="url(#clip-${id}-${index})"/></svg>`}
 function art(p,kind){return tile(p.id,kind==='face'?0:1,kind==='face'?p.name:p.skill)}
 $('cards').innerHTML=`<svg class="board-art" viewBox="0 975 941 697" preserveAspectRatio="none" aria-hidden="true"><image href="./assets/manga-ui.webp" width="941" height="1672"/></svg>`+roster.map((p,i)=>`<article class="card ${p.id}-card" aria-label="${p.name}"><h3 class="sr-only">${p.name}</h3><div class="hp-row"><div class="bar"><i id="hp-${i}"></i></div><span class="hp-label" id="label-${i}"></span></div><button class="skill" id="skill-${i}" aria-label="${p.name}のひっさつわざ" disabled><span class="sr-only">${p.skill}　ひっさつ！</span><small id="charge-${i}">25%</small><span class="charge-track"><i id="meter-${i}"></i></span></button></article>`).join('');
 function banner(text){clearTimeout(bannerTimer);$('banner').textContent=text;$('banner').classList.add('show');bannerTimer=setTimeout(()=>$('banner').classList.remove('show'),1200)}
@@ -16,16 +16,16 @@ function animate(id,cls){const el=$(id);el.classList.remove(cls);void el.offsetW
 // Artwork anchors exclude weapon trails: match head-to-feet height and ground position.
 const MOTION_GEOMETRY={
  nobunaga:{idle:[1536,1024,820,996,20],normal:[270,585,25],special:[270,600,145]},
- yukimura:{idle:[1536,1024,740,978,55],normal:[270,570,35],special:[260,550,100]},
+ yukimura:{idle:[1536,1024,740,978,55],normal:[270,570,35],special:[260,550,100],headRatio:[2.06,2.26]},
  kenshin:{idle:[1536,1024,680,985,45],normal:[255,575,55],special:[250,580,100]},
  tengu:{idle:[1402,1122,765,1070,80],normal:[410,550,85],special:[300,560,90]}
 };
 function poseLayout(char,special,width,height){
  const g=MOTION_GEOMETRY[char],[iw,ih,ix,iy,it]=g.idle,[px,py,pt]=g[special?'special':'normal'];
- const idleScale=Math.min(width/iw,height/ih),scale=idleScale*(iy-it)/(py-pt);
+ const idleScale=Math.min(width/iw,height/ih),scale=idleScale*(g.headRatio?.[special?1:0]??(iy-it)/(py-pt));
  return {size:627*scale,left:(width-iw*idleScale)/2+ix*idleScale-px*scale,top:(height-ih*idleScale)/2+iy*idleScale-py*scale};
 }
-function fitPose(sprite,char,special){const box=sprite.getBoundingClientRect(),layout=poseLayout(char,special,box.width,box.height),svg=sprite.querySelector('.pose svg');Object.assign(svg.style,{width:layout.size+'px',height:layout.size+'px',left:layout.left+'px',top:layout.top+'px'});}
+function fitPose(sprite,char,special){const box=sprite.getBoundingClientRect(),layout=poseLayout(char,special,sprite.clientWidth||box.width,sprite.clientHeight||box.height),svg=sprite.querySelector('.pose svg');Object.assign(svg.style,{width:layout.size+'px',height:layout.size+'px',left:layout.left+'px',top:layout.top+'px'});}
 function motion(id,special=false){const el=$(id),sprite=el.querySelector('.sprite'),pose=sprite.querySelector('.pose'),key=id;clearTimeout(motionTimers.get(key));const char=id==='enemy'?'tengu':id;pose.innerHTML=tile(char,special?3:2);fitPose(sprite,char,special);sprite.classList.add('has-pose');el.classList.remove('action-normal','action-special');void el.offsetWidth;el.classList.add(special?'action-special':'action-normal');const serial=battleSerial;motionTimers.set(key,setTimeout(()=>{if(serial!==battleSerial)return;sprite.classList.remove('has-pose');el.classList.remove('action-normal','action-special')},special?1050:650))}
 
 function damage(id,n,special=false){const target=$(id),battle=document.querySelector('.battle'),r=target.getBoundingClientRect(),b=battle.getBoundingClientRect(),el=document.createElement('span');el.className='damage'+(special?' special':'');el.textContent=n;el.style.left=(r.left-b.left+r.width/2-15)+'px';el.style.top=(r.top-b.top+10)+'px';$('effects').append(el);setTimeout(()=>el.remove(),900);animate(id,'hit')}
