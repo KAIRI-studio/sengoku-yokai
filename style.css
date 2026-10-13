@@ -34,3 +34,13 @@
 
 /* Reuse the exact gold artwork; a color filter never changes its geometry. */
 .palette-definitions{position:absolute;pointer-events:none}.portrait-art svg,.skill-art svg{filter:url(#gold-to-ruby)}.card.rarity-legend:before{background-image:url('./assets/legend-frame-gold.webp');filter:url(#gold-to-ruby) drop-shadow(0 0 3px #ff3b5266)}
+
+/* Full-bleed illustrations: the ornate outer frame is the only picture frame. */
+.card{padding:0;border-left:0;border-right:0}
+.portrait-art{overflow:hidden}
+.skill-art{top:0;height:70%;}
+.rarity-legend .skill{z-index:auto}
+.skill-art{z-index:1}
+.skill small,.skill-caption{z-index:7}
+.card h3{margin:0 5px}
+.hp-row{width:calc(100% - 12px);margin:0 6px}
