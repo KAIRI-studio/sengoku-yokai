@@ -7,3 +7,6 @@
 
 /* Compact controls and cluster the party on the sandy foreground. */
 .commands{padding:0 7%;background:#fff5dc}#cards{width:100%;aspect-ratio:941/697}.status-row{margin:0 -8.14%;padding:0 3px}.fighter:not(.enemy){height:18%}.fighter:nth-child(1){top:42%}.fighter:nth-child(2){top:61%}.fighter:nth-child(3){top:80%}.enemy{top:49%;height:41%}.boss-info{top:33%}.battle{min-height:270px}@media(max-height:650px){.battle{min-height:230px}}
+
+/* Restore the approved character size; expand the foreground instead of shrinking heroes. */
+.battle{background-size:100% 115%;background-position:center bottom}.fighter:not(.enemy){height:24%}.fighter:not(.enemy) .sprite{height:100%;top:0}.fighter:nth-child(1){top:28%}.fighter:nth-child(2){top:51.5%}.fighter:nth-child(3){top:75%}.enemy{height:44%;top:46%}.enemy .sprite{height:110%;top:-5%}
