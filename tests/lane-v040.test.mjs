@@ -1,0 +1,10 @@
+import assert from 'node:assert/strict';import {Battle,allies} from '../lane-engine-v040.mjs';
+const advance=(b,s)=>{for(let t=0;t<s;t+=.05)b.step(.05)};
+let b=new Battle();assert.equal(b.deploy(1),true);assert.equal(b.rice,200);assert.equal(b.deploy(1),false);assert.equal(b.deploy(2),false);advance(b,15);assert.equal(b.deploy(1),false,'one named warrior at a time');assert(b.rice>200);
+b=new Battle();assert(b.deploy(0));assert(!b.deploy(0));advance(b,1.5);assert(b.deploy(0),'foot soldiers repeat');
+b=new Battle();const hero=b.add(1,1),target=b.add(-1,0);hero.x=500;target.x=550;hero.charge=100;b.step(.05);assert.equal(b.cut.uid,hero.uid);assert.equal(hero.charge,0);assert(target.hp===0);const frozen=b.time;advance(b,.5);assert.equal(b.time,frozen,'cutin freezes combat');advance(b,.8);assert(b.time>frozen);
+b=new Battle();const u=b.add(1,2);u.x=899;b.temple=10;u.attackLeft=0;b.step(.05);assert.equal(b.result,'win');const rice=b.rice;advance(b,2);assert.equal(b.rice,rice);
+b=new Battle();const foe=b.add(-1,0);foe.x=106;foe.attackLeft=0;b.home=10;b.step(.05);assert.equal(b.result,'lose');
+b=new Battle();advance(b,35);assert.equal(b.boss,true);assert(b.units.some(u=>u.id==='tengu'));assert(b.rice<=b.cap);
+b=new Battle();for(let t=0;t<300&&!b.result;t+=.05){for(let i=4;i>=0;i--)if(b.canDeploy(i))b.deploy(i);b.step(.05)}assert.equal(b.result,'win','a balanced deploy strategy can win');
+console.log('PASS: resources, cooldown, single warrior, repeat foot soldiers, auto skill/cutin, victory, defeat, boss, full battle.');
