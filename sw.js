@@ -1,5 +1,5 @@
-const CACHE='sengoku-yokai-v0.3.0-full';
-const FILES=['./','./index.html','./style-pop-v030.css','./app-pop-v030-full.js','./hub-pop-v030-full.js','./units-pop-v030-full.js','./manifest.webmanifest','./assets/icon.svg','./assets/pop-courtyard-v030.webp','./assets/pop-characters-v030.webp','./assets/pop-skills-v030.webp'];
+const CACHE='sengoku-yokai-v0.3.0-clean';
+const FILES=['./','./index.html','./style-pop-v030.css','./app-pop-v030-clean.js','./hub-pop-v030-clean.js','./units-pop-v030-clean.js','./manifest.webmanifest','./assets/icon.svg','./assets/pop-courtyard-v030.webp','./assets/pop-characters-v030.webp','./assets/pop-skills-v030.webp'];
 self.addEventListener('install',event=>{self.skipWaiting();event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(FILES)))});
 self.addEventListener('activate',event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('sengoku-yokai-')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim()))});
 self.addEventListener('fetch',event=>{if(event.request.method!=='GET')return;event.respondWith(fetch(event.request).then(response=>{if(response.ok&&new URL(event.request.url).origin===self.location.origin){const copy=response.clone();caches.open(CACHE).then(cache=>cache.put(event.request,copy))}return response}).catch(()=>caches.match(event.request).then(response=>response||caches.match('./index.html'))))});
