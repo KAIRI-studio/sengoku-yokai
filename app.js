@@ -1,4 +1,4 @@
-import {catalog,getTeam,unitTile} from './units-v020.js';
+import {catalog,getTeam,unitTile} from './units-v020-full.js';
 let roster=getTeam().map(id=>catalog.find(p=>p.id===id));
 let currentScreen='home';
 const $=id=>document.getElementById(id);
