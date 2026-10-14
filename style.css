@@ -48,3 +48,9 @@
 /* Fit the entire head and skill artwork without nested picture frames. */
 .portrait-art,.skill-art{background:radial-gradient(ellipse at 50% 35%,#ffae9a 0,#f65358 55%,#b91433 100%)}
 .portrait-art svg,.skill-art svg{width:100%;height:100%}
+
+/* Re-composed full-bleed ruby artwork, with complete heads and wide skills. */
+.card{background-image:url('./assets/legend-portraits-v027.webp');background-size:200% 200%;background-position:100% 100%}
+.portrait-art,.skill-art{background:none}
+.portrait-art svg,.skill-art svg{filter:none}
+.card h3{margin:0}
