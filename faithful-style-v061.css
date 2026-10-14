@@ -134,3 +134,10 @@ body{background-color:#d4e3d6;background-image:repeating-linear-gradient(30deg,t
 .side-panel{container-type:inline-size;padding:clamp(10px,1.6vw,20px)}
 .side-guide-content li strong{font-size:clamp(10px,6cqw,16px)}
 .side-guide-content li small{font-size:clamp(8px,5cqw,12px)}
+
+.side-title span{font-size:clamp(14px,14cqw,34px)}
+.side-title strong{font-size:clamp(26px,28cqw,62px)}
+.side-guide-content h2{font-size:clamp(12px,10cqw,23px)}
+.side-guide-content li strong{font-size:clamp(8px,7.5cqw,16px)}
+.side-guide-content li small{font-size:clamp(7px,6cqw,12px)}
+@container(max-width:135px){.guide-number{display:none}.side-guide-content li{justify-content:center;text-align:center}.side-kicker{font-size:7px;letter-spacing:.06em}.side-title{margin:12px 0}.side-divider{margin:12px auto}.side-guide-content ol{gap:20px}}

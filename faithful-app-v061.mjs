@@ -20,7 +20,7 @@ function fitViewport(){
  const availableWidth=Math.max(1,width-horizontal),availableHeight=Math.max(1,height-vertical);
  const gameWidth=Math.min(availableWidth,availableHeight*1672/941);
  game.style.width=gameWidth+'px';game.style.height=gameWidth*941/1672+'px';
- const sideWidth=Math.max(0,(availableWidth-gameWidth)/2),showSides=sideWidth>=170&&availableHeight>=260;
+ const sideWidth=Math.max(0,(availableWidth-gameWidth)/2),showSides=sideWidth>=100&&availableHeight>=260;
  const left=document.querySelector('#side-brand'),right=document.querySelector('#side-guide');
  for(const panel of [left,right]){if(!panel)continue;panel.hidden=!showSides;panel.style.width=sideWidth+'px';panel.style.height=availableHeight+'px';panel.style.top=(parseFloat(padding.paddingTop)||0)+'px'}
  if(left)left.style.left=(parseFloat(padding.paddingLeft)||0)+'px';
