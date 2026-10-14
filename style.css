@@ -54,3 +54,9 @@
 .portrait-art,.skill-art{background:none}
 .portrait-art svg,.skill-art svg{filter:none}
 .card h3{margin:0}
+
+/* Ready text must float above the ornamental frame, without a parent filter layer. */
+.skill-caption{visibility:hidden;opacity:0;pointer-events:none;z-index:10}
+.skill.ready{filter:none;animation:none;transform:none}
+.skill.ready .skill-caption{visibility:visible;opacity:1;animation:readyPulse 1.1s ease-in-out infinite}
+.skill small{z-index:10}
