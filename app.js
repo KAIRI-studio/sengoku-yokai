@@ -1,4 +1,4 @@
-import {catalog,getTeam,bodyArt,portrait,skillArt,tengu} from './units-pop-v030.js';
+import {catalog,getTeam,bodyArt,portrait,skillArt,tengu} from './units-pop-v030-full.js';
 let roster=getTeam().map(id=>catalog.find(p=>p.id===id));
 let currentScreen='home';
 const $=id=>document.getElementById(id);
