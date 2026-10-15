@@ -97,7 +97,7 @@ function showCut(u){
  $('#cutin').style.animation='none';void $('#cutin').offsetWidth;$('#cutin').style.animation='';
 }
 function hideCut(){$('#cutin').hidden=true;cutU=null}
-function ui(){const welcome=mode!=='battle';$('#rice').textContent=welcome?'850':Math.floor(battle.rice);for(const [sel,value,max]of[['.home',battle.home,battle.homeMax],['.enemy',battle.temple,battle.templeMax]]){const e=$('.base-hp'+sel);e.querySelector('i').style.width=(welcome?100:value/max*100)+'%';e.setAttribute('aria-valuenow',String(welcome?max:value))}
+function ui(){const welcome=mode!=='battle';$('#rice').textContent=welcome?'850':Math.floor(battle.rice);for(const [sel,value,max]of[['.home',battle.home,battle.homeMax],['.enemy',battle.temple,battle.templeMax]]){const e=$('.base-hp'+sel);e.querySelector('i').style.width=(welcome?100:value/max*100)+'%';e.setAttribute('aria-valuemax',String(max));e.setAttribute('aria-valuenow',String(welcome?max:value))}
  cards.forEach(b=>{const i=Number(b.dataset.index);
  const u=battle.active(i),alive=i>0&&!!u,isSkill=alive&&!!u.skill;
  const skillReady=isSkill&&battle.canSpecial(u.uid),can=mode==='battle'&&!paused&&(isSkill?skillReady:battle.canDeploy(i));
