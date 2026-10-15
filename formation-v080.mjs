@@ -1,0 +1,2 @@
+// Keep the permanent foot soldier, compact empty slots and swap duplicate heroes.
+export function placeMember(team,id,index){if(index<1||index>5||id==='ashigaru')return null;const next=[...team],target=Math.min(index,next.length),old=next.indexOf(id);if(old===target)return next;if(old>=0){const displaced=next[target];next[target]=id;if(displaced)next[old]=displaced;else next.splice(old,1)}else next[target]=id;return next}
