@@ -10,7 +10,7 @@ const rows=[
 ['e08','easy','地図','日本の 東側に 大きく 広がる 海は？',['太平洋（たいへいよう）','日本海（にほんかい）','地中海（ちちゅうかい）'],'日本の 東側には 太平洋、西側には 日本海が 広がっているよ。'],
 ['e09','easy','地図','横浜市（よこはまし）が あるのは？',['神奈川県（かながわけん）','千葉県（ちばけん）','埼玉県（さいたまけん）'],'横浜市は 神奈川県の 県庁が ある 都市だよ。'],
 ['e10','easy','地図','地図の しるしを 使う おもな 理由は？',['建物や 場所を わかりやすく する','地図を 重く する','方角を 毎回 変える'],'地図記号（ちずきごう）を 使うと、小さな 地図でも 場所の 特ちょうを 表せるよ。'],
-['e11','easy','くらし','お米を 作るために 水を はる 畑は？',['田んぼ','茶畑','果樹園（かじゅえん）'],'田んぼでは 水を 利用して、米になる いねを 育てるよ。'],
+['e11','easy','くらし','お米を 作るために 水を はる 場所は？',['田んぼ','茶畑','果樹園（かじゅえん）'],'田んぼでは 水を 利用して、米になる いねを 育てるよ。'],
 ['e12','easy','くらし','野菜や お米を 育てる 仕事は？',['農業（のうぎょう）','漁業（ぎょぎょう）','運送業（うんそうぎょう）'],'農業は 作物を 育てたり、牛などの 家畜を 育てたりする 仕事だよ。'],
 ['e13','easy','くらし','海で 魚を とる 仕事は？',['漁業（ぎょぎょう）','林業（りんぎょう）','工業（こうぎょう）'],'漁業には 魚などを とる 仕事や、育てる 仕事が あるよ。'],
 ['e14','easy','くらし','水道の 水を きれいにする しせつは？',['浄水場（じょうすいじょう）','駅','市場（いちば）'],'浄水場で 川などの 水を きれいにして、水道管で 家や 学校へ 届けるよ。'],
@@ -56,5 +56,5 @@ const byId=new Map(QUESTIONS.map(q=>[q.id,q]));
 export const questionFor=id=>byId.get(id);
 const shuffle=(items,random)=>{const a=[...items];for(let i=a.length-1;i>0;i--){const n=Number(random()),j=Math.floor(Math.max(0,Math.min(.999999,Number.isFinite(n)?n:0))*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
 export function createRound(level='easy',random=Math.random,exclude=[]){if(!LEVELS[level])level='easy';const pool=QUESTIONS.filter(q=>q.level===level),fresh=pool.filter(q=>!exclude.includes(q.id));return{id:globalThis.crypto?.randomUUID?.()||`${Date.now()}-${Math.random()}`,level,items:shuffle(fresh.length>=ROUND_SIZE?fresh:pool,random).slice(0,ROUND_SIZE).map(q=>({id:q.id,order:shuffle([0,1,2],random)})),answers:[]}}
-export function normalizeRound(r){if(!r||typeof r.id!=='string'||r.id.length>100||!LEVELS[r.level]||!Array.isArray(r.items)||r.items.length!==ROUND_SIZE||!Array.isArray(r.answers)||r.answers.length>ROUND_SIZE)return null;if(new Set(r.items.map(i=>i?.id)).size!==ROUND_SIZE||r.items.some(i=>!i||questionFor(i.id)?.level!==r.level||!Array.isArray(i.order)||i.order.length!==3||[...i.order].sort().join(',')!=='0,1,2')||r.answers.some(a=>!Number.isInteger(a)||a<0||a>2))return null;return{id:r.id,level:r.level,items:r.items.map(i=>({id:i.id,order:[...i.order]})),answers:[...r.answers]}}
+export function normalizeRound(r){if(!r||typeof r.id!=='string'||r.id.length>100||!LEVELS[r.level]||!Array.isArray(r.items)||r.items.length!==ROUND_SIZE||!Array.isArray(r.answers)||r.answers.length>ROUND_SIZE)return null;if(new Set(r.items.map(i=>i?.id)).size!==ROUND_SIZE||r.items.some(i=>!i||questionFor(i.id)?.level!==r.level||!Array.isArray(i.order)||i.order.length!==3||i.order.some(n=>!Number.isInteger(n))||[...i.order].sort().join(',')!=='0,1,2')||r.answers.some(a=>!Number.isInteger(a)||a<0||a>2))return null;return{id:r.id,level:r.level,items:r.items.map(i=>({id:i.id,order:[...i.order]})),answers:[...r.answers]}}
 export function roundScore(r){return r.answers.reduce((n,a,i)=>n+(r.items[i].order[a]===0?1:0),0)}
