@@ -1,0 +1,2 @@
+const ART={"deploy":{"src":"./assets/deploy-lettering-v118.webp","size":[2172,724],"view":[0,45,2172,656]},"skill":{"src":"./assets/skill-lettering-v118.webp","size":[2172,724],"view":[32,39,2130,657]}};
+export function statusArt(kind){const a=ART[kind];return `<svg class="status-lettering" viewBox="${a.view.join(' ')}" preserveAspectRatio="none" aria-hidden="true"><image href="${a.src}" width="${a.size[0]}" height="${a.size[1]}"/></svg>`}
