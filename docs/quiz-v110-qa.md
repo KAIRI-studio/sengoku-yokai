@@ -1,0 +1,3 @@
+# Ver.1.1.0 verification
+
+2026-10-16: 9 Node tests passed. All 48 source page anchors verified against text extracted from the official MEXT PDF. Live Chrome: version1.0.9→1.1.0 update preserved 1,080 koban and team. Old round retired; new course screen displayed grade ranges. Intro provenance note, first normal question, correct answer (+20 to 1,100), explanation grade/unit, and source detail were verified. Source page showed printed p102/PDF p106, with official PDF anchor and MEXT landing link opening in a separate tab. Returning to explanation and reopening provenance did not award additional koban. Source modal dimensions: client/scroll height 574, width1034; no overflow. Saved screenshot quiz-source-v110.jpg. iPhone hardware testing not performed.
