@@ -1,0 +1,226 @@
+[
+  {
+    "id": "nobunaga",
+    "asset": "assets/standing-nobunaga-v111.webp",
+    "source": "exec-26809e56-49ca-4898-b262-0ab9ead0ffa9.png",
+    "width": 1254,
+    "height": 1254,
+    "bounds": [
+      0,
+      0,
+      1216,
+      1239
+    ],
+    "bytes": 246792
+  },
+  {
+    "id": "ashigaru",
+    "asset": "assets/standing-ashigaru-v111.webp",
+    "source": "exec-070179f9-3f44-42c1-90b1-5ad858be6a92.png",
+    "width": 1254,
+    "height": 1254,
+    "bounds": [
+      23,
+      28,
+      1238,
+      1254
+    ],
+    "bytes": 169842
+  },
+  {
+    "id": "yukimura",
+    "asset": "assets/standing-yukimura-v111.webp",
+    "source": "exec-d6c78fd2-3cbe-44fd-a21d-7fd5638e1ea7.png",
+    "width": 1254,
+    "height": 1254,
+    "bounds": [
+      0,
+      21,
+      1232,
+      1254
+    ],
+    "bytes": 214880
+  },
+  {
+    "id": "kenshin",
+    "asset": "assets/standing-kenshin-v111.webp",
+    "source": "exec-2d47c541-fc38-4eab-9da0-c116d2fb39e3.png",
+    "width": 1254,
+    "height": 1254,
+    "bounds": [
+      0,
+      41,
+      1234,
+      1234
+    ],
+    "bytes": 200916
+  },
+  {
+    "id": "mitsuhide",
+    "asset": "assets/standing-mitsuhide-v111.webp",
+    "source": "exec-70610787-5720-40c3-ba56-2545b2b851d0.png",
+    "width": 1254,
+    "height": 1254,
+    "bounds": [
+      0,
+      35,
+      1223,
+      1254
+    ],
+    "bytes": 232388
+  },
+  {
+    "id": "kazutoyo",
+    "asset": "assets/standing-kazutoyo-v111.webp",
+    "source": "exec-987240db-2155-42ee-a339-367fff17d750.png",
+    "width": 1254,
+    "height": 1254,
+    "bounds": [
+      0,
+      23,
+      1234,
+      1254
+    ],
+    "bytes": 197092
+  },
+  {
+    "id": "shingen",
+    "asset": "assets/standing-shingen-v111.webp",
+    "source": "exec-d6d85aa0-7f58-4b53-a1c6-7de97e502523.png",
+    "width": 1254,
+    "height": 1254,
+    "bounds": [
+      96,
+      23,
+      1220,
+      1224
+    ],
+    "bytes": 240910
+  },
+  {
+    "id": "hideyoshi",
+    "asset": "assets/standing-hideyoshi-v111.webp",
+    "source": "exec-a7566a23-84e9-4054-8b2b-08df6a56f5c3.png",
+    "width": 1254,
+    "height": 1254,
+    "bounds": [
+      0,
+      15,
+      1228,
+      1254
+    ],
+    "bytes": 303920
+  },
+  {
+    "id": "ieyasu",
+    "asset": "assets/standing-ieyasu-v111.webp",
+    "source": "exec-5dcbf36a-b7f7-4b34-9629-7e2accb91716.png",
+    "width": 1254,
+    "height": 1254,
+    "bounds": [
+      0,
+      9,
+      1234,
+      1254
+    ],
+    "bytes": 257764
+  },
+  {
+    "id": "masamune",
+    "asset": "assets/standing-masamune-v111.webp",
+    "source": "exec-f8876aba-60ce-4730-8262-5fe944d5be56.png",
+    "width": 1254,
+    "height": 1254,
+    "bounds": [
+      0,
+      21,
+      1226,
+      1254
+    ],
+    "bytes": 244272
+  },
+  {
+    "id": "motonari",
+    "asset": "assets/standing-motonari-v111.webp",
+    "source": "exec-46ad4498-4c13-4944-bc74-66458cde224a.png",
+    "width": 1254,
+    "height": 1254,
+    "bounds": [
+      21,
+      41,
+      1238,
+      1232
+    ],
+    "bytes": 231084
+  },
+  {
+    "id": "yoshihiro",
+    "asset": "assets/standing-yoshihiro-v111.webp",
+    "source": "exec-3ace6590-53b3-458f-b703-692acd254877.png",
+    "width": 1254,
+    "height": 1254,
+    "bounds": [
+      0,
+      28,
+      1216,
+      1235
+    ],
+    "bytes": 202356
+  },
+  {
+    "id": "hanzo",
+    "asset": "assets/standing-hanzo-v111.webp",
+    "source": "exec-1700964d-4b1c-4c76-a71e-178221a696d8.png",
+    "width": 1254,
+    "height": 1254,
+    "bounds": [
+      0,
+      31,
+      1200,
+      1230
+    ],
+    "bytes": 168796
+  },
+  {
+    "id": "kanbei",
+    "asset": "assets/standing-kanbei-v111.webp",
+    "source": "exec-09b767a4-3f50-46df-80c8-069f72692841.png",
+    "width": 1254,
+    "height": 1254,
+    "bounds": [
+      0,
+      19,
+      1226,
+      1254
+    ],
+    "bytes": 198604
+  },
+  {
+    "id": "toshiie",
+    "asset": "assets/standing-toshiie-v111.webp",
+    "source": "exec-4c6d6020-02d4-43f6-a77c-488e37216fde.png",
+    "width": 1254,
+    "height": 1254,
+    "bounds": [
+      0,
+      3,
+      1234,
+      1254
+    ],
+    "bytes": 183764
+  },
+  {
+    "id": "naomasa",
+    "asset": "assets/standing-naomasa-v111.webp",
+    "source": "exec-4ed47877-db18-4a7e-83d1-83857323932b.png",
+    "width": 1254,
+    "height": 1254,
+    "bounds": [
+      47,
+      40,
+      1217,
+      1254
+    ],
+    "bytes": 228004
+  }
+]
