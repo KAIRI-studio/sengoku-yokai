@@ -1,0 +1,207 @@
+/* One visual language: cream paper, forest ink and restrained gold borders. */
+:root{--ui-paper:#fff8e5;--ui-ink:#284d3d;--ui-line:#b8bda0;--ui-gold:#d0ad57;--ui-radius:.8cqw}
+.game-button{border:.13cqw solid #b89b55;border-radius:var(--ui-radius);box-shadow:inset 0 .15cqw #fff9,0 .24cqw 0 #aa8b4166;letter-spacing:.03em}
+.game-button.red{border-color:#b9573c;box-shadow:inset 0 .12cqw #ffb68b,0 .24cqw #9d4b3666}
+#hub .menu-standing{width:100%;height:100%;object-fit:contain;display:block;image-rendering:auto;filter:none;animation:none;transform:none}
+#hub .home-character{left:5.8cqw;top:7.5cqw;width:42cqw;height:28.5cqw;filter:none}
+#hub .home-character-heading .eyebrow{font-size:1cqw;color:#526b50}
+#hub .home-character-heading .rank-label{font-size:.87cqw}
+#hub .warrior-art{top:7.2cqw;height:26cqw;filter:none}
+#hub .warrior-stats{top:33.5cqw;background:#fff9e9;border-color:#bec7ac;box-shadow:0 .2cqw .6cqw #223d2420;border-radius:var(--ui-radius);padding:.8cqw .3cqw}
+#hub .warrior-stats small{font-size:.98cqw;color:#586a4e;font-weight:750}
+#hub .warrior-stats b{font-size:1.65cqw}
+#hub .warrior-stats em{font-size:1cqw}
+#hub .warrior-skill{top:39cqw;left:.5cqw;right:.5cqw;padding:.55cqw .3cqw;margin:0;background:#fff8e8f5;border-radius:.6cqw;color:#44583d;text-shadow:none;font-size:1.04cqw;line-height:1.6}
+#hub .dojo-world:after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 30%,#fff8e3b8 34%)}
+#hub .formation-board{grid-template-rows:2.3cqw 1.4cqw 8.2cqw 2.1cqw 2.8cqw minmax(0,1fr) 4.1cqw 1.2cqw;gap:.45cqw}
+#hub .formation-instruction{font-size:1.05cqw;line-height:1.4cqw;color:#546b4e}
+#hub .team-slot strong{font-size:1.12cqw;line-height:1.4cqw}
+#hub .team-slot small{font-size:.86cqw;line-height:1.2cqw;color:#58664c}
+#hub .roster-details{gap:.4cqw;padding-bottom:.7cqw}
+#hub .roster-details b{font-size:1.26cqw}
+#hub .roster-details>span{font-size:.85cqw;color:#52664f}
+#hub .roster-details .rarity-tag{font-size:.81cqw;padding:.22cqw .4cqw}
+#hub .equipped-tag{font-size:.76cqw;bottom:.35cqw;color:#2c6642}
+#hub .formation-target{font-size:1.02cqw;color:#4c6349}
+#hub .formation-actions .text-button{font-size:1cqw}
+#hub .formation-actions .game-button{font-size:1.15cqw}
+#hub .autosave-note{font-size:.85cqw;color:#506d4b;line-height:1.2cqw}
+.home-squad .squad-caption{font-size:1cqw}.squad-caption button{font-size:1.05cqw}
+.quiz-banner small,.recruit-banner small{font-size:.95cqw}.gacha-note{font-size:1.04cqw;line-height:1.5;color:#cfdbc0}
+/* Battle cards keep the same rarity palette as the roster. */
+.card .new-card-art{inset:3% 3% 2%;border:.17cqw solid var(--rank-border);outline:none;border-radius:var(--ui-radius);box-shadow:inset 0 0 0 .15cqw #fff9,0 .2cqw .35cqw #28463730;background:var(--rank-paper)}
+.card .new-card-art.legend{background:var(--rank-paper);border-color:#c59c49}.card .new-card-art.rare{background:var(--rank-paper);border-color:#a4b8ce}
+.card .battle-card-portrait{top:3%;left:3%;right:3%;height:58%;border-radius:.5cqw}
+.card .new-card-art>b{top:59%;left:4%;right:4%;border-radius:.45cqw;background:#244b3df5;font-size:1.42cqw;line-height:1.5}
+.card .new-card-art>small{top:73%;font-size:1.38cqw;line-height:1.4;color:#334e3b}.card .new-card-art>small>span{font-size:.93cqw;font-weight:700}
+.battle-rarity{font-size:.8cqw;border-radius:.35cqw;padding:.12cqw .4cqw;box-shadow:0 .1cqw .2cqw #172b2520}
+.card .resources,.card.rare .resources,.card.normal .resources{top:72%;left:7%;right:7%;height:23%;padding:.32cqw .35cqw;gap:.38cqw;border:1px solid #bec5aa;border-radius:.5cqw;background:#fff8e5;box-shadow:none;justify-content:center}
+.card .resource-row{display:grid;grid-template-columns:3.8cqw minmax(0,1fr);align-items:center;gap:.35cqw;flex:1;height:auto;min-height:0}
+.card .resource-name{position:static;display:flex;align-items:center;justify-content:flex-start;gap:.2cqw;width:auto;font-size:1.02cqw;letter-spacing:0;text-shadow:none;font-weight:850;line-height:1;color:#756024}
+.card .hp-row .resource-name{color:#386440;font-size:1.08cqw}.resource-heart{font-size:.95cqw;color:#63a644}
+.card .skill-row .resource-name{color:#86621e}.card.skill-waiting .skill-row .resource-name{color:#86621e}
+.card .resource-bar{height:.72cqw;border:.09cqw solid #c2c7ad;border-radius:.5cqw;background:#d9dcc8;box-shadow:inset 0 .08cqw .14cqw #42583c20}
+.card .resource-bar i{border-radius:inherit;box-shadow:inset 0 .1cqw #fff5}
+.card .hp-bar i{background:linear-gradient(#95d971,#5aaf48)}.card .skill-bar i{background:linear-gradient(#ffe075,#e7b32e)}
+.card .resource-bar i:after{display:none}.card.skill-ready .skill-bar{border-color:#d3ad4f;box-shadow:0 0 .45cqw #e9bc4877}
+.card .meter{left:9%;right:9%;top:87%;height:6.5%;border:.09cqw solid #729aa7;border-radius:.6cqw;background:#c5d9df;box-shadow:none}
+.card .meter i,.card.legend .meter i,.card.rare .meter i{background:linear-gradient(#77c9ec,#3793c0);box-shadow:inset 0 .1cqw #fff6}
+.card.disabled:not(.deployed) .badge{top:73%;bottom:auto;left:7%;right:7%;padding:.3cqw .2cqw;border:.1cqw solid #c8bd98;border-radius:.45cqw;background:#fff9e9;color:#65704f;text-align:center;font-size:1.02cqw;line-height:1.35;box-shadow:none}
+.card.hp-active .new-card-art>small{display:none}.card .empty-card,.empty-card{border:.15cqw dashed #b6bd9d;border-radius:var(--ui-radius);background:#fff9e7dd;color:#8c9e77}.empty-card small{font-size:1cqw;color:#667a56}
+.card .sparkles{opacity:.38}.card.skill-ready .sparkles{opacity:1}
+/* A friendly guide joins the quiz; the question remains the main focus. */
+.quiz .modal-sheet{width:82cqw;border-radius:1.1cqw;border-color:#c0bc95;box-shadow:0 1cqw 3cqw #17372d66}
+.quiz .game-button{border-width:.13cqw}.quiz-intro{position:relative;padding:0 1cqw 0 17cqw;text-align:center;min-height:34cqw}
+.quiz-intro .quiz-book{width:6cqw;height:5cqw}.quiz-intro h2{font-size:2.8cqw}.quiz-intro .quiz-levels{margin:1.3cqw 0 1cqw;gap:1.1cqw}.quiz-intro .quiz-levels button{padding:1.2cqw;grid-template-columns:2.8cqw 1fr;gap:.4cqw .7cqw}.quiz-intro .quiz-levels small{font-size:1.05cqw;line-height:1.6}.quiz-intro .quiz-levels button>span{font-size:2cqw}
+.quiz-mentor{position:absolute;left:0;top:1.4cqw;bottom:1cqw;width:15cqw;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:.6cqw}
+.quiz-mentor img{display:block;width:100%;height:23cqw;object-fit:contain;filter:drop-shadow(0 .4cqw .2cqw #556d3820)}
+.quiz-mentor strong{font-size:1.15cqw;color:#435e42}.quiz-mentor p{font-size:1cqw;line-height:1.6!important;color:#63754e;text-align:center;background:#e9efd7;border-radius:.65cqw;padding:.6cqw .7cqw;max-width:14cqw}
+.quiz-question{position:relative;padding-right:15cqw}.quiz-question .quiz-mentor{left:auto;right:-1cqw;top:0;bottom:0;width:14cqw}.quiz-question .quiz-mentor img{height:19cqw}.quiz-question h2{font-size:2.1cqw;line-height:1.6;min-height:7cqw}.quiz-choices b{font-size:1.48cqw}.quiz-choices button{min-height:4.8cqw}.quiz-category{font-size:1.08cqw}.quiz-question .quiz-note{font-size:1.08cqw!important}
+.quiz-feedback{position:relative;padding:.1cqw 1cqw .1cqw 14cqw}.quiz-feedback .quiz-mentor{width:12cqw;top:0;bottom:0}.quiz-feedback .quiz-mentor img{height:21cqw}.quiz-verdict{margin-bottom:1cqw}.quiz-explanation{padding:1.1cqw 1.5cqw}.quiz-explanation p{font-size:1.32cqw;line-height:1.8!important}.quiz-source-row>span{font-size:1.02cqw}.quiz-source-button{font-size:1.04cqw}
+.quiz-result{position:relative;padding-left:15cqw}.quiz-result .quiz-mentor{width:14cqw}.quiz-result .quiz-reward{max-width:100%;width:38cqw}
+.quiz .coin-flight{position:absolute;right:12cqw;top:17cqw;width:3cqw;height:3.5cqw;pointer-events:none;z-index:3;opacity:0;animation:quiz-coin-flight 1s cubic-bezier(.2,.65,.3,1) both;animation-delay:var(--coin-delay)}.quiz .coin-flight svg{width:100%;height:100%}
+.quiz .quiz-earned.reward-pop{animation:wallet-pop .65s ease-out}
+@keyframes quiz-coin-flight{0%{transform:translate(-8cqw,5cqw) scale(.65) rotate(-25deg);opacity:0}15%{opacity:1}75%{opacity:1}100%{transform:translate(0,-16cqw) scale(.35) rotate(25deg);opacity:0}}
+@keyframes wallet-pop{0%,100%{transform:scale(1)}40%{transform:scale(1.18);color:#c28224}}
+@media(prefers-reduced-motion:reduce){.quiz .coin-flight{display:none}.quiz .quiz-earned.reward-pop{animation:none}}
+#hub .home-character .menu-standing,#hub .warrior-art>.menu-standing{animation:none;transform:none}
+#hud .stage,.stage-label{border-radius:.8cqw}
+
+/* Mobile game controls: preserve scrolling while suppressing double-tap zoom. */
+#game,#rotate-guide{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;touch-action:manipulation}
+#game img{-webkit-user-drag:none;pointer-events:none}
+#game input,#game textarea,#game [contenteditable="true"]{-webkit-user-select:text;user-select:text}
+#battle-canvas{touch-action:none}
+/* Standalone art is contained, with no dependence on animation-sheet bounds. */
+#cutin .cutface{left:10%;bottom:-3%;width:35%;height:122%}
+#cutin .cutface img{display:block;width:100%;height:100%;object-fit:contain;object-position:center bottom}
+/* Title direction: living illustrated scenery, a calm logo, and a clear invitation. */
+#title-screen{overflow:hidden;background:#65d6ec}
+.title-landscape{position:absolute;inset:0;background:url('./assets/title-scene-v114.webp') center/100% 100% no-repeat;transform:none;animation:none;transition:none}
+.title-sunlight{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 0%,#fff4ba55,transparent 58%),linear-gradient(110deg,transparent 30%,#fff4c514 42%,transparent 53%);mix-blend-mode:screen;opacity:.6}
+.title-active .title-sunlight{animation:none;opacity:.45}
+#title-atmosphere{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+#title-screen.title-active .title-logo{animation:title-reveal .95s cubic-bezier(.16,.8,.22,1) both,title-logo-float 4.8s 1s ease-in-out infinite!important;filter:drop-shadow(0 .35cqw .12cqw #29452b30);transform-origin:center 65%;will-change:transform}
+#title-screen.title-active .title-start{animation:title-button-reveal .65s .65s cubic-bezier(.18,.8,.25,1) both!important;overflow:hidden;isolation:isolate;transition:filter .2s,box-shadow .2s,transform .15s;border:.16cqw solid #9e7130;background:linear-gradient(#ffe99a,#ffcf5d 55%,#f3b83f);box-shadow:inset 0 .2cqw #fff6d3,0 .38cqw #a67532,0 .7cqw 1.5cqw #8b61223d;color:#4c3923;text-shadow:0 .1cqw #fff3b8}
+#title-screen .title-start:before{content:'';position:absolute;inset:-100% -65%;pointer-events:none;z-index:-1;background:linear-gradient(112deg,transparent 43%,#fff9 49%,transparent 55%);transform:translateX(-55%)}
+#title-screen.title-active .title-start:not(:disabled):before{animation:title-button-sheen 5.5s 1.8s ease-in-out infinite}
+#title-screen .title-start:hover{filter:brightness(1.07)}
+#title-screen .title-start:not(:disabled):active{transform:translateY(.25cqw);box-shadow:inset 0 .1cqw #fff6d3,0 .12cqw #a67532}
+.title-tagline{position:absolute;top:32.1cqw;left:20cqw;right:20cqw;margin:0;text-align:center;font-size:1.2cqw;font-weight:800;color:#3e6043;letter-spacing:.12em;text-shadow:0 .12cqw .25cqw #fff9d5}
+.title-audience{position:absolute;top:48cqw;left:0;right:0;text-align:center;font-size:1cqw;letter-spacing:.08em;color:#526341;text-shadow:0 .12cqw #fff4d0}
+.title-active .title-tagline,.title-active .title-audience,.title-active .title-how{animation:title-copy-reveal .7s 1s both}
+#title-screen .title-how{border:.09cqw solid #fff6d6;background:#fff8d8df;box-shadow:0 .15cqw .45cqw #6a6d3420;transition:background .2s}
+#title-screen .title-how:hover{background:#fffbe9}
+.quiz-intro .quiz-levels b{font-size:1.65cqw;line-height:1.5}.quiz-top .quiz-kicker i{font-size:1.05cqw}.quiz-question h2{font-size:2cqw;line-height:1.65}.quiz-choices b{font-size:1.42cqw;line-height:1.65}.quiz-explanation p{font-size:1.28cqw;line-height:1.8!important}
+@keyframes sunlight-drift{0%,100%{opacity:.4;transform:translateX(-1%)}50%{opacity:.85;transform:translateX(1%)}}
+@keyframes title-reveal{0%{opacity:0;transform:translateY(1.4cqw) scale(.91)}75%{opacity:1;transform:translateY(-.2cqw) scale(1.015)}100%{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes title-logo-float{0%,100%{transform:translateY(.12cqw) rotate(-.75deg) scale(1)}50%{transform:translateY(-1.3cqw) rotate(.75deg) scale(1.014)}}
+@keyframes title-button-reveal{from{opacity:0;translate:0 1cqw}to{opacity:1;translate:0 0}}
+@keyframes title-copy-reveal{from{opacity:0;translate:0 .4cqw}to{opacity:1;translate:0 0}}
+@keyframes title-button-sheen{0%,55%{transform:translateX(-55%)}78%,100%{transform:translateX(55%)}}
+#title-screen[hidden] *,body:has(#title-screen[hidden]) .title-spark{animation-play-state:paused!important}
+@media(prefers-reduced-motion:reduce){#title-screen.title-active *,#title-screen.title-active *:before{animation:none!important;transition:none!important}.title-landscape{transform:none}#title-atmosphere{display:block}}
+@media(prefers-reduced-motion:reduce){#title-screen.title-active .title-logo,#title-screen.title-active .title-start,#title-screen.title-active .title-landscape,#title-screen.title-active .title-sunlight,#title-screen.title-active .title-tagline,#title-screen.title-active .title-audience,#title-screen.title-active .title-how,#title-screen.title-active .title-start:not(:disabled):before{animation:none!important;transition:none!important}}
+/* Separate each card into rank, face, name, status and resources. */
+#backdrop{background-image:none}
+#cards{top:65.5%;height:34%;gap:.25cqw;padding:0 .2cqw}
+.card .new-card-art{inset:1% 1% 1%}
+.card .battle-rarity{top:2%;left:3%;height:9%;display:flex;align-items:center;font-size:max(9px,.83cqw);line-height:1;padding:0 .4cqw;max-width:94%;white-space:nowrap}
+.card .battle-card-portrait{top:13%;left:3%;right:3%;height:43%}
+.card .new-card-art>b{top:57%;height:11%;display:flex;align-items:center;justify-content:center;font-size:max(12px,1.45cqw);line-height:1;white-space:nowrap}
+.card .deploy-seal,.card .skill-seal{top:69%;left:7%;right:7%;width:86%;height:13%;aspect-ratio:auto;rotate:0;transform-origin:center;filter:drop-shadow(0 .1cqw .1cqw #332b2840)}
+.card .deploy-seal img,.card .skill-seal img{width:100%;height:100%;object-fit:contain}
+.card.deploy-ready .deploy-seal,.card.skill-ready .skill-seal{animation:card-status-pop .3s ease-out both,card-status-breathe 1.8s .3s ease-in-out infinite}
+.card .new-card-art>small{top:84%;height:10%;font-size:max(11px,1.35cqw);line-height:1.35}
+.card .new-card-art>small>span{font-size:max(10px,1.05cqw)}
+.card .meter{top:95%;height:3%;left:8%;right:8%}
+.card .resources,.card.rare .resources,.card.normal .resources{top:83%;height:15%;left:6%;right:6%;padding:.08cqw .3cqw;gap:.12cqw}
+.card .resource-row{grid-template-columns:max(37px,5.4cqw) minmax(0,1fr);gap:.15cqw;line-height:1}
+.card .resource-name,.card .hp-row .resource-name{font-size:max(9px,1.02cqw);line-height:1;white-space:nowrap}
+.card .resource-heart{font-size:max(8px,.95cqw)}
+.card .resource-bar{height:max(4px,.66cqw)}
+.card.disabled:not(.deployed) .badge{top:70%;height:11%;display:flex;align-items:center;justify-content:center;left:6%;right:6%;padding:0 .15cqw;font-size:max(10px,1.05cqw);line-height:1}
+.card .veil{inset:13% 4% 44%}
+.empty-card small{font-size:max(11px,1cqw);line-height:1.5;text-align:center;padding:.5cqw}
+#pause{width:6cqw;height:6cqw;min-width:40px;min-height:40px;max-width:66px;max-height:66px;background:none}
+#pause svg{display:block;overflow:visible}
+@keyframes card-status-pop{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:scale(1)}}
+@keyframes card-status-breathe{0%,100%{transform:translateY(0)}50%{transform:translateY(-.12cqw)}}
+/* The battle clock is paused while these three short steps are open. */
+#battle-guide{z-index:85;background:#18372ac9;backdrop-filter:blur(3px)}
+#battle-guide .guide-sheet{width:64cqw;max-height:93%;overflow:auto;padding:1.4cqw 2.4cqw;border:.16cqw solid #c8b276;background:#fff9e7}
+.guide-counter{font-size:max(12px,1.15cqw);color:#6b704f;letter-spacing:.07em}
+.guide-icon{height:5cqw;min-height:38px;display:flex;align-items:center;justify-content:center;font-size:max(32px,4cqw);margin:.8cqw 0}
+.guide-icon img{max-width:24cqw;height:100%;object-fit:contain}.guide-rice{font-size:max(14px,1.5cqw);line-height:1.5;font-weight:850;color:#9e7632}
+#battle-guide h2{font-size:max(20px,2.6cqw);line-height:1.4;margin:.7cqw 0 1.1cqw}
+#battle-guide p{font-size:max(14px,1.45cqw);line-height:1.8;margin:0}
+.guide-actions{display:flex;gap:1cqw;margin-top:1.4cqw}#battle-guide .guide-actions button{flex:1;min-height:40px;font-size:max(14px,1.4cqw);margin:0}
+#battle-guide #guide-next{background:#df7250;border-color:#ad5338;color:#fff9e7}
+#battle-guide #guide-skip{width:auto;min-height:32px;margin:.7cqw auto 0;padding:.35cqw 1cqw;font-size:max(12px,1.05cqw);background:none;border:0;box-shadow:none;color:#65704d;text-decoration:underline;text-underline-offset:.2em}
+#battle-coach{position:absolute;z-index:25;left:1cqw;bottom:35.5%;margin:0;background:#fff9df;border:.16cqw solid #bd9145;border-radius:.7cqw;padding:.6cqw 1cqw;font-size:max(12px,1.3cqw);font-weight:850;color:#435540;box-shadow:0 .3cqw .7cqw #35422333;pointer-events:none}
+.guide-target{outline:.28cqw solid #ffd659;outline-offset:-.2cqw;border-radius:.8cqw}
+/* A phone gets its own density and type scale rather than a miniature desktop. */
+@container(max-width:900px){
+ #hub .hub-header{height:6.5cqw;min-height:42px;padding:.5cqw 1.4cqw;gap:1cqw}
+ #hub .header-name strong{font-size:max(17px,2.2cqw)}
+ #hub .crest-button{width:36px;height:36px;min-width:36px;padding:5px}
+ #hub .help-button{min-height:36px;font-size:12px;gap:4px}.help-button .ui-icon{width:19px;height:19px}
+ #hub .wallet{font-size:15px;min-height:32px;padding:5px 9px;gap:5px}#hub .wallet strong{font-size:17px}#hub .wallet small{font-size:11px}#hub .wallet>.ui-icon{width:20px;height:20px}
+ #hub-content{top:max(42px,6.5cqw);bottom:6.7cqw}
+ #hub .hub-nav{height:6.7cqw;min-height:42px}#hub .hub-nav button{font-size:14px;gap:1cqw}.hub-nav .nav-art{width:4cqw;height:4cqw}
+ #hub .home-character-heading{top:1.2cqw}#hub .home-character-heading h1{font-size:22px}#hub .home-character-heading .eyebrow{font-size:11px}#hub .rank-label{font-size:10px}
+ #hub .home-character{top:7cqw;height:26cqw}
+ #hub .squad-caption{font-size:11px}#hub .squad-caption button{font-size:12px;min-height:30px}#hub .squad-caption>span{font-size:11px}
+ #hub .home-squad{bottom:1cqw}#hub .squad-portraits{gap:.65cqw}#hub .squad-face{width:6.4cqw;height:6.4cqw}
+ #hub .adventure-card{top:1.3cqw;bottom:8.5cqw}#hub .adventure-info{padding:.6cqw .3cqw;gap:.2cqw}
+ #hub .adventure-info h2{font-size:18px}#hub .adventure-loot{font-size:11px}#hub .adventure-loot b{font-size:12px}
+ #hub .choose-stage{font-size:11px;min-height:32px;padding:4px 8px}#hub .chapter-badge,#hub .clear-badge{font-size:11px}
+ #hub .adventure-card .game-button{font-size:17px;min-height:36px}
+ #hub .quiz-banner,#hub .recruit-banner{height:6.8cqw;min-height:42px;bottom:.65cqw;padding:.5cqw .7cqw;gap:.4cqw}
+ #hub .quiz-banner b,#hub .recruit-banner b{font-size:12px}#hub .quiz-banner small,#hub .recruit-banner small{font-size:10px;line-height:1.4}
+ #hub .quiz-banner>.ui-icon:last-child,#hub .recruit-banner>.ui-icon:last-child{display:none}
+ #hub .warrior-display{left:1cqw;width:24cqw}#hub .warrior-name{top:1.2cqw}#hub .warrior-name h1{font-size:21px}
+ #hub .warrior-name .rank-label{font-size:10px}#hub .warrior-art{top:7cqw;height:23cqw}
+ #hub .warrior-stats{top:30.5cqw;padding:.6cqw .15cqw;gap:.1cqw}#hub .warrior-stats small{font-size:10px}#hub .warrior-stats b{font-size:14px}#hub .warrior-stats em{font-size:10px}
+ #hub .warrior-skill{top:38.5cqw;left:0;right:0;font-size:11px;line-height:1.6}
+ #hub .formation-board{left:27cqw;right:1.5cqw;top:1cqw;bottom:1cqw;grid-template-rows:22px 15px 9.3cqw 20px 34px minmax(65px,1fr) 38px;gap:.45cqw}
+ #hub .formation-caption h2{font-size:15px}#hub .formation-caption>span{font-size:11px}#hub .formation-instruction{font-size:11px;line-height:15px}
+ #hub .team-slot{height:9.3cqw;grid-template-rows:6.1cqw 17px;padding:.3cqw;gap:.15cqw}#hub .team-slot .slot-face{height:6.1cqw}#hub .team-slot strong{font-size:11px;line-height:17px}#hub .team-slot small{display:none}#hub .slot-number{font-size:10px;width:15px;height:15px}
+ #hub .roster-caption{font-size:12px;line-height:18px;padding:0}#hub .roster-caption>span{font-size:11px}#hub .roster-hint{display:none}
+ #hub .roster-filters button{font-size:11px;min-height:32px;gap:4px;padding:3px}.roster-filters button>span{font-size:10px}
+ #hub .roster{grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:72px;max-height:none;height:100%;gap:5px;padding:2px 4px 3px 2px;border-bottom:1px solid #bdc5ac}
+ #hub .roster-unit{height:72px;padding:4px;gap:5px}#hub .roster-unit .roster-portrait{width:6.5cqw;height:6.5cqw;min-width:40px}#hub .roster-details{gap:4px;padding-bottom:10px}#hub .roster-details b{font-size:12px}#hub .roster-details .rarity-tag{font-size:9px;padding:2px 3px}#hub .roster-details>span{display:none}#hub .equipped-tag{font-size:9px;bottom:3px}
+ #hub .formation-actions{gap:5px;padding:4px 0;margin:0}#hub .formation-target{font-size:11px;line-height:1.4}#hub .formation-target b{display:inline;font-size:11px}#hub .formation-actions .text-button{font-size:11px;padding:7px 4px}#hub .formation-actions .game-button{width:25cqw;font-size:12px;min-height:34px;padding:5px}
+ #hub .autosave-note{display:none}
+ #hub .summon-panel{top:2cqw;width:37cqw;right:3cqw}#hub .summon-eyebrow,#hub .summon-line{font-size:11px}#hub .summon-panel h1{font-size:24px;margin:.4cqw 0 1cqw}#hub .summon-faces{margin-bottom:1.2cqw}
+ #hub .summon-panel .game-button{font-size:17px;min-height:42px}#hub .pull-price{font-size:17px}#hub .gacha-note{font-size:11px;margin-top:.7cqw}#hub .gacha-quiz{font-size:11px;min-height:36px}#hub .summon-panel .text-button{font-size:11px;min-height:30px;padding:4px 0;margin-top:.3cqw}
+ #hub .text-button{font-size:11px}#hub-toast{font-size:12px;padding:8px 14px}
+ .quiz .modal-sheet{width:94cqw;max-height:94%;padding:12px 18px;overflow-y:auto;border-radius:10px}
+ .quiz .quiz-mentor,.quiz .quiz-book{display:none}.quiz-intro,.quiz-question,.quiz-feedback,.quiz-result{padding:0;min-height:0}
+ .quiz h2,.quiz-intro h2{font-size:22px;line-height:1.45;margin:4px 0 8px}.quiz .quiz-kicker,.quiz .quiz-category{font-size:11px}
+ .quiz .modal-close{width:36px;height:36px;font-size:24px;right:8px;top:8px}
+ .quiz .quiz-lead{font-size:13px;line-height:1.65!important}.quiz-intro .quiz-levels{margin:9px 0 7px;gap:10px}
+ .quiz-intro .quiz-levels button{padding:10px;grid-template-columns:22px 1fr;gap:4px 7px;min-height:85px}.quiz-intro .quiz-levels b{font-size:15px;line-height:1.5}.quiz-intro .quiz-levels button>span{font-size:20px}.quiz-intro .quiz-levels small,.quiz-intro .quiz-levels em{font-size:11px;line-height:1.5}
+ .quiz .quiz-note,.quiz .quiz-source-button{font-size:11px!important;line-height:1.6!important}.quiz .quiz-source-button{min-height:30px;padding:5px}
+ .quiz-question h2{font-size:18px;line-height:1.55;min-height:0;margin:7px 0 10px;padding-right:16px}
+ .quiz .quiz-choices{gap:7px}.quiz .quiz-choices button{min-height:40px;padding:7px 10px;gap:8px}.quiz .quiz-choices b{font-size:14px;line-height:1.5}.quiz .quiz-choices button>span{font-size:12px;width:24px;height:24px}
+ .quiz .quiz-top{padding-right:30px}.quiz .quiz-top .quiz-kicker i{font-size:11px;display:inline}.quiz .quiz-earned b{font-size:17px}.quiz .quiz-earned small{font-size:11px}.quiz .quiz-earned svg{width:17px;height:21px}
+ .quiz .quiz-progress{margin:8px 0;gap:6px}.quiz .quiz-progress span{height:22px;min-width:22px;font-size:12px}
+ .quiz .quiz-explanation{padding:10px 12px}.quiz .quiz-explanation p{font-size:14px;line-height:1.7!important}.quiz .quiz-explanation strong{font-size:17px}.quiz .quiz-source-row>span{font-size:11px}
+ .quiz .game-button{font-size:15px;min-height:38px;height:auto}.quiz .quiz-verdict{margin-bottom:9px}.quiz .quiz-verdict h2{font-size:21px}.quiz .quiz-verdict p{font-size:13px}
+ .quiz .quiz-source-notice,.quiz .quiz-source-card p{font-size:13px;line-height:1.8!important}.quiz .quiz-source-card h3{font-size:16px}.quiz .quiz-source-meta,.quiz .quiz-source-links a{font-size:12px}
+ .quiz .quiz-score b{font-size:42px}.quiz .quiz-score span{font-size:15px}.quiz .quiz-reward strong{font-size:26px}.quiz .quiz-reward span{font-size:12px}.quiz-result .quiz-reward{width:auto;max-width:100%;margin:10px auto}.quiz .quiz-home{font-size:12px;min-height:32px}
+ .sheet{width:65cqw;padding:14px 20px}.sheet h2{font-size:24px}.sheet button{font-size:15px;min-height:36px}.sheet small,.sheet p{font-size:12px}
+ #battle-guide .guide-sheet{width:84cqw;padding:10px 18px}#battle-guide h2{font-size:20px}#battle-guide p{font-size:14px}#battle-guide .guide-icon{margin:4px 0;height:38px}
+ #battle-coach{font-size:12px;padding:7px 10px;max-width:95%;bottom:35%}
+ #title-screen .title-tagline{font-size:12px}#title-screen .title-audience{font-size:11px}#title-screen .title-how{font-size:12px;min-height:30px}
+}
+@container(max-width:650px){
+ #hub .help-button span{display:none}#hub .header-name strong{font-size:15px}
+ #hub .formation-board{grid-template-rows:19px 14px 9.3cqw 18px 30px minmax(50px,1fr) 35px;gap:.3cqw}
+ #hub .formation-caption h2{font-size:13px}#hub .roster-filters button{font-size:10px}.roster-filters button>span{display:none}
+ #hub .adventure-info h2{font-size:16px}#hub .adventure-loot{font-size:10px}#hub .adventure-card .game-button{font-size:16px}
+ #hub .quiz-banner b,#hub .recruit-banner b{font-size:11px}#hub .quiz-banner small,#hub .recruit-banner small{font-size:9px}
+ #hub .quiz-banner>.ui-icon:first-child{display:none}.quiz .quiz-levels button{grid-template-columns:1fr}.quiz .quiz-levels button>span{display:none}
+}
+@media(prefers-reduced-motion:reduce){.card.deploy-ready .deploy-seal,.card.skill-ready .skill-seal{animation:none!important}}
