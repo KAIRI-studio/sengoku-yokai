@@ -103,3 +103,4 @@
 @keyframes title-button-sheen{0%,55%{transform:translateX(-55%)}78%,100%{transform:translateX(55%)}}
 #title-screen[hidden] *,body:has(#title-screen[hidden]) .title-spark{animation-play-state:paused!important}
 @media(prefers-reduced-motion:reduce){#title-screen.title-active *,#title-screen.title-active *:before{animation:none!important;transition:none!important}.title-landscape{transform:none}#title-atmosphere{display:none}}
+@media(prefers-reduced-motion:reduce){#title-screen.title-active .title-logo,#title-screen.title-active .title-start,#title-screen.title-active .title-landscape,#title-screen.title-active .title-sunlight,#title-screen.title-active .title-tagline,#title-screen.title-active .title-audience,#title-screen.title-active .title-how,#title-screen.title-active .title-start:not(:disabled):before{animation:none!important;transition:none!important}}
