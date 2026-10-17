@@ -68,3 +68,5 @@
 新規素材: assets/title-plate-v125.webp、assets/title-characters-v125.webp。built-in imagegen 使用。
 背景プロンプト: Remove only five foreground characters, weapons and their ground shadows from the existing title illustration. Seamlessly reconstruct the courtyard, buildings, river, grass and shrubs, preserving original 16:9 composition, castle, sky, banners, bridge, colors and clean cartoon style. No characters, text, UI or new objects.
 キャラプロンプト: Transparent atlas of the same five reference characters: black/gold red-caped Nobunaga with raised sword; red-armored spear-wielding Yukimura; white-hooded blue Kenshin with curved sword; happy green kappa; smiling red oni with yellow hair, tiger shorts and club. Complete unoccluded bodies, reproduce poses/costumes/faces, separate each figure with transparent gutters, no background/floor/shadows/labels, crisp thick-outline flat-color art.
+
+1.1.16: WebGLを使えない環境でもCanvasの三角形メッシュで同じ個別待機動作を描画。
