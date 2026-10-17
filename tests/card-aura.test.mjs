@@ -1,0 +1,2 @@
+import test from'node:test';import assert from'node:assert/strict';import{borderPoint,CARD_AURA_COLORS}from'../battle-card-aura-v141.mjs';
+test('border particles stay on the outside edge and loop continuously',()=>{for(let i=0;i<=1000;i++){const p=borderPoint(100,140,8,i/1000),q=borderPoint(100,140,8,i/1000+1);assert.ok(p.every(Number.isFinite));assert.ok(p[0]>=0&&p[0]<=100&&p[1]>=0&&p[1]<=140);assert.ok(p[0]<=8||p[0]>=92||p[1]<=8||p[1]>=132);assert.ok(Math.hypot(p[0]-q[0],p[1]-q[1])<1e-8)}assert.equal(Object.keys(CARD_AURA_COLORS).length,5)});
