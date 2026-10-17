@@ -77,3 +77,6 @@
 スマホ縮小後にも動きが分かるよう、呼吸・マント・妖怪の弾みを約3倍へ拡大。低フレームレート時にアニメ時間が遅くなりすぎないよう経過時間の上限を調整。GPU初回描画のエラーも検出して新しいCanvasへフォールバック。
 
 1.1.19: タイトル素材の参照先を修正し、公開中のアニメーションが実在する画像へ接続されることをテストで検証。
+
+### v1.1.20
+Title characters now use the four battle walking frames and run left to right in a separate foreground lane. Removed mesh deformation. Controls remain clear above the runners.
