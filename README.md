@@ -80,3 +80,6 @@
 
 ### v1.1.20
 Title characters now use the four battle walking frames and run left to right in a separate foreground lane. Removed mesh deformation. Controls remain clear above the runners.
+
+### v1.1.35
+Compact gacha panels fit above navigation. Formation details explain roles, reach, speed, attack intervals and actual special effects. Wrong quiz answers persist by grade band and can be retried in rounds of up to five; a correct answer clears the review item. Stage clear times and counts are saved from this version onward. Existing wallet, teams, ownership, quiz progress and clears use the unchanged save key.
