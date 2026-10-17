@@ -1,0 +1,22 @@
+import{splitCharacters,TITLE_FIGURES,VERTEX,FRAGMENT}from'./title-characters-v125.mjs';
+const title=document.querySelector('#title-screen'),canvas=document.querySelector('#title-characters'),motion=matchMedia('(prefers-reduced-motion: reduce)');
+const gl=canvas.getContext('webgl',{alpha:true,antialias:true,premultipliedAlpha:false,powerPreference:'low-power'});
+let frame=0,last=0,lastDraw=0,time=0,ready=false,renderer=null;
+function active(){return ready&&!document.hidden&&!title.hidden&&title.classList.contains('title-active')}
+function draw(){if(!renderer)return;renderer(time);canvas.dataset.time=time.toFixed(2)}
+function tick(now){frame=0;if(!active()){last=0;return}const dt=last?Math.min((now-last)/1000,.05):0;last=now;time+=dt;if(now-lastDraw>=32){draw();lastDraw=now}frame=requestAnimationFrame(tick)}
+function sync(){cancelAnimationFrame(frame);frame=0;last=0;if(!ready)return;draw();if(active()&&!motion.matches)frame=requestAnimationFrame(tick)}
+function shader(type,source){const s=gl.createShader(type);gl.shaderSource(s,source);gl.compileShader(s);if(!gl.getShaderParameter(s,gl.COMPILE_STATUS))throw Error(gl.getShaderInfoLog(s));return s}
+function setup(parts){
+ const program=gl.createProgram();gl.attachShader(program,shader(gl.VERTEX_SHADER,VERTEX));gl.attachShader(program,shader(gl.FRAGMENT_SHADER,FRAGMENT));gl.linkProgram(program);if(!gl.getProgramParameter(program,gl.LINK_STATUS))throw Error(gl.getProgramInfoLog(program));gl.useProgram(program);
+ const vertices=[];for(let y=0;y<18;y++)for(let x=0;x<12;x++)for(const [a,b]of[[x,y],[x+1,y],[x,y+1],[x,y+1],[x+1,y],[x+1,y+1]])vertices.push(a/12,b/18);const buffer=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buffer);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(vertices),gl.STATIC_DRAW);const a=gl.getAttribLocation(program,'aUV');gl.enableVertexAttribArray(a);gl.vertexAttribPointer(a,2,gl.FLOAT,false,0,0);
+ const uniforms=Object.fromEntries(['uRect','uViewport','uTime','uKind','uPhase','uShadow','uTexture'].map(n=>[n,gl.getUniformLocation(program,n)]));gl.uniform2f(uniforms.uViewport,1000,563);gl.uniform1i(uniforms.uTexture,0);
+ const figures=parts.map((part,i)=>{const texture=gl.createTexture();gl.bindTexture(gl.TEXTURE_2D,texture);gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,part.width,part.height,0,gl.RGBA,gl.UNSIGNED_BYTE,part.pixels);for(const p of[gl.TEXTURE_WRAP_S,gl.TEXTURE_WRAP_T])gl.texParameteri(gl.TEXTURE_2D,p,gl.CLAMP_TO_EDGE);for(const p of[gl.TEXTURE_MIN_FILTER,gl.TEXTURE_MAG_FILTER])gl.texParameteri(gl.TEXTURE_2D,p,gl.LINEAR);const f=TITLE_FIGURES[i];return{...f,width:f.height*part.width/part.height,texture}});
+ gl.enable(gl.BLEND);gl.blendFunc(gl.SRC_ALPHA,gl.ONE_MINUS_SRC_ALPHA);canvas.width=1500;canvas.height=845;gl.viewport(0,0,canvas.width,canvas.height);
+ return seconds=>{gl.clearColor(0,0,0,0);gl.clear(gl.COLOR_BUFFER_BIT);gl.uniform1f(uniforms.uTime,seconds);gl.uniform1f(uniforms.uShadow,1);for(const f of figures){gl.uniform4f(uniforms.uRect,f.x+f.width*.15,f.bottom-4,f.width*.7,9);gl.drawArrays(gl.TRIANGLES,0,vertices.length/2)}gl.uniform1f(uniforms.uShadow,0);for(const i of[3,4,1,2,0]){const f=figures[i];gl.bindTexture(gl.TEXTURE_2D,f.texture);gl.uniform4f(uniforms.uRect,f.x,f.bottom-f.height,f.width,f.height);gl.uniform1f(uniforms.uKind,f.kind);gl.uniform1f(uniforms.uPhase,f.phase);gl.drawArrays(gl.TRIANGLES,0,vertices.length/2)}}
+}
+if(gl){new MutationObserver(sync).observe(title,{attributes:true,attributeFilter:['hidden','class']});document.addEventListener('visibilitychange',sync);motion.addEventListener('change',sync);
+ const sheet=new Image(),plate=new Image();sheet.src='./assets/title-characters-v125.webp';plate.src='./assets/title-plate-v125.webp';
+ Promise.all([sheet.decode(),plate.decode()]).then(()=>{const raw=document.createElement('canvas');raw.width=sheet.naturalWidth;raw.height=sheet.naturalHeight;const c=raw.getContext('2d',{willReadFrequently:true});c.drawImage(sheet,0,0);const parts=splitCharacters(c.getImageData(0,0,raw.width,raw.height));if(parts.length!==5)throw Error('Expected five title figures');renderer=setup(parts);ready=true;canvas.dataset.figures=TITLE_FIGURES.map(f=>f.id).join(',');title.classList.add('characters-ready');sync()}).catch(e=>console.error('Title character animation unavailable',e));
+ canvas.addEventListener('webglcontextlost',e=>{e.preventDefault();ready=false;cancelAnimationFrame(frame);title.classList.remove('characters-ready')});
+}

@@ -62,3 +62,9 @@
 
 ## 1.1.14 昼背景で映えるオーラ
 昼の本陣へ戻し、キャラ背後の背景をわずかに落ち着かせた。全身の外側に各色の濃い縁を描画し、光の芯との明暗差を確保。きらめきは数を抑えて大きくし、濃い細い縁で昼にも見えるようにした。キャラ別配色と文字切れ修正を維持。
+
+## 1.1.15 タイトルキャラの個別アニメーション
+背景プレートと透過の5体を別素材にし、WebGLの細分化メッシュで足元を基準に呼吸・マント・構え・妖怪の小さな弾みを個別の周期で描画。雲・ロゴは維持。画面外停止・動きを減らす設定・WebGL非対応と素材読込失敗時の従来静止画フォールバックを実装。
+新規素材: assets/title-plate-v125.webp、assets/title-characters-v125.webp。built-in imagegen 使用。
+背景プロンプト: Remove only five foreground characters, weapons and their ground shadows from the existing title illustration. Seamlessly reconstruct the courtyard, buildings, river, grass and shrubs, preserving original 16:9 composition, castle, sky, banners, bridge, colors and clean cartoon style. No characters, text, UI or new objects.
+キャラプロンプト: Transparent atlas of the same five reference characters: black/gold red-caped Nobunaga with raised sword; red-armored spear-wielding Yukimura; white-hooded blue Kenshin with curved sword; happy green kappa; smiling red oni with yellow hair, tiger shorts and club. Complete unoccluded bodies, reproduce poses/costumes/faces, separate each figure with transparent gutters, no background/floor/shadows/labels, crisp thick-outline flat-color art.
