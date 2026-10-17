@@ -52,3 +52,7 @@
 
 ## 1.1.11 ホームのレジェンドオーラ
 承認済みの輪郭発光とゆるやかな光線をホームの選択中レジェンドに実装。のぶながは黒＋薄紫、けんしん白、ひでよし金、いえやす緑、しんげん赤。通常・レアには表示しない。画面外・非表示時停止、キャラ変更時に破棄、動きを減らす設定では静止。画像読込失敗時は通常イラストを維持。
+
+## 1.1.12 夜の本陣
+ホーム用に夜の背景 assets/basecamp-night-v122.webp を新規作成。キャラ背後と足元を紺色にし、灯籠と月を離してオーラの発光を強調。編成欄の文字色も夜背景に調整。
+画像制作: built-in imagegen。最終プロンプト: Use case: lighting-weather / stylized-concept. Background-only illustration for an existing children's Japanese Sengoku game home screen. Existing daytime basecamp is the style/layout reference. Professionally art-directed night basecamp, wide 16:9, clean bold simplified 2D illustration, crisp restrained outlines, flat painted planes. Castle and wall on far left, distant hills, shrubs and open courtyard. Deep desaturated navy, indigo and muted teal. Hero zone x25%, y25–85% is quiet, dark, low contrast, no bright objects; dark slate ground. Crescent moon x72%, y15%, sparse upper-right stars. Small warm lanterns at far edges only. Welcoming magical night, no characters, people, UI, letters, watermarks or built-in aura.
