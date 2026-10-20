@@ -61,6 +61,9 @@ function draw(ms){
   ctx.save();ctx.translate(540,489);ctx.scale(.83,.83);
   ctx.fillStyle='#322b213e';ctx.beginPath();ctx.ellipse(0,3,132,13,0,0,Math.PI*2);ctx.fill();
   part('cape',-22,-237,420,60,.5,cape);
+  // Hair belongs behind the lifted weapon, so the silver blade stays visible.
+  ctx.save();ctx.translate(43,-257);ctx.rotate(head*DEG);
+  part('pony',-49,-185,343,151,.50,pony);ctx.restore();
   part('free',61,-215,75,42,.32,-4);
   part('body',-135,-264.6,0,0,.60);
   const shoulderX=-30,shoulderY=-213;
@@ -73,7 +76,6 @@ function draw(ms){
   part('sword',handX,handY,36,28,.47,sword);
   part('fore',elbowX,elbowY,95,27,.30,foreAngle);
   ctx.save();ctx.translate(43,-257);ctx.rotate(head*DEG);
-  part('pony',-49,-185,343,151,.50,pony);
   part(shout?'shout':'head',0,0,180,335,.60);
   ctx.restore();ctx.restore();
   canvas.dataset.pose=shout?'cheer':'rest';
