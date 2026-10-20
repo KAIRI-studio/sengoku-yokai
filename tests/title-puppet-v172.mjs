@@ -3,16 +3,8 @@
 const canvas=document.querySelector('#puppet'),ctx=canvas.getContext('2d');
 const status=document.querySelector('#status'),play=document.querySelector('#play');
 const buttons=[...document.querySelectorAll('button')],DEG=Math.PI/180;
-const period=4500,shoulder=[550,640],upperPivot=[336,366],elbowPivot=[330,438],armScale=.69;
-const keys=[[0,0,0],[850,0,0],[1100,2,-4],[1700,-66,-15],[1900,-65,-15],[2500,-65,-15],[3300,0,0],[4500,0,0]];
-export function poseAt(ms){
-  const t=ms%period;let a=keys[0],b=keys[1];
-  for(let i=1;i<keys.length;i++){b=keys[i];if(t<=b[0])break;a=b}
-  const p=Math.max(0,Math.min(1,(t-a[0])/(b[0]-a[0]))),e=p*p*(3-2*p);
-  return {shoulder:a[1]+(b[1]-a[1])*e,elbow:a[2]+(b[2]-a[2])*e};
-}
+import {period,shoulder,upperPivot,elbowPivot,armScale,poseAt,joints} from './title-salute-rig-v172.mjs';
 function polygon(points){const p=new Path2D();points.forEach(([x,y],i)=>i?p.lineTo(x,y):p.moveTo(x,y));p.closePath();return p}
-function rotate(x,y,angle){const a=angle*DEG;return[x*Math.cos(a)-y*Math.sin(a),x*Math.sin(a)+y*Math.cos(a)]}
 const original=new Image(),fill=new Image(),arm=new Image();
 original.src='../assets/standing-nobunaga-v111.webp';fill.src='../assets/title-nobunaga-underarm-v171.webp';arm.src='../assets/title-nobunaga-arm-v171.webp';
 const armHole=polygon([[445,628],[625,635],[623,720],[575,795],[604,899],[516,922],[413,895],[328,834],[328,768],[423,752]]);
@@ -37,9 +29,9 @@ function drawCharacter(cx,scale,animated,pose){
     // Hidden black sleeve material fills the shoulder socket under its fixed
     // armor. The pivot sits where the sleeve emerges, not inside the chest.
     ctx.fillStyle='#191919';ctx.beginPath();ctx.ellipse(542,655,38,25,0,0,Math.PI*2);ctx.fill();
-    const d=rotate((elbowPivot[0]-upperPivot[0])*armScale,(elbowPivot[1]-upperPivot[1])*armScale,pose.shoulder);
+    const j=joints(pose);
     drawArmPart(upper,...shoulder,...upperPivot,pose.shoulder);
-    drawArmPart(fore,shoulder[0]+d[0],shoulder[1]+d[1],...elbowPivot,pose.shoulder+pose.elbow-3);
+    drawArmPart(fore,...j.elbow,...elbowPivot,j.foreAngle);
     // The original pauldron remains attached to the torso, in front of the joint.
     ctx.save();ctx.clip(shoulderMask);ctx.drawImage(original,0,0);ctx.restore();
   }
