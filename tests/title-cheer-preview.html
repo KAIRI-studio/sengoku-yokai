@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#244d41">
+  <title>のぶながの かちどき｜動きの試作</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;background:#f2e9d1;color:#244d41;font-family:system-ui,-apple-system,"Hiragino Sans",sans-serif;padding:24px 16px}main{max-width:1080px;margin:auto}header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}h1{font-size:clamp(20px,3vw,30px);margin:0;font-weight:750;letter-spacing:.04em}.tag{font-size:13px;border:1px solid #b0b59e;border-radius:999px;padding:6px 12px;white-space:nowrap}.stage{position:relative;aspect-ratio:16/8;background:#78b5aa url('../assets/field-hd-1-v159.webp') center/cover;border:3px solid #345747;border-radius:20px;overflow:hidden;box-shadow:0 14px 30px #244d4124}.stage:after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 70px #244d4126;pointer-events:none}canvas{display:block;width:100%;height:100%}#status{position:absolute;top:16px;left:16px;background:#fff8dfed;border:1px solid #c9b984;border-radius:12px;padding:8px 16px;font-size:16px;margin:0}.controls{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:20px}button,a{font:inherit}button{border:2px solid #345747;color:#244d41;background:#fff9e7;border-radius:12px;min-height:48px;padding:10px 22px;cursor:pointer;font-weight:700}button:first-child{background:#ffda77}button:focus-visible,a:focus-visible{outline:3px solid #e29924;outline-offset:4px}button:disabled{opacity:.5;cursor:wait}.note{text-align:center;font-size:15px;line-height:1.8;margin:16px 0 0}footer{text-align:center;margin-top:18px}a{color:#345747;font-size:14px} @media(max-width:700px){body{padding:12px 10px}header{margin-bottom:10px}.stage{border-radius:12px}.tag{font-size:11px;padding:4px 8px}#status{top:10px;left:10px;font-size:13px;padding:5px 10px}.controls{margin-top:12px;gap:8px}button{font-size:15px;padding:8px 16px}.note{font-size:13px;margin-top:10px}}
+  </style>
+</head>
+<body>
+  <main>
+    <header><h1>のぶながの かちどき</h1><span class="tag">動きの試作</span></header>
+    <section class="stage" aria-label="のぶながが刀を掲げて勝ちどきをあげるアニメーション">
+      <canvas id="cheer" width="1080" height="540" role="img" aria-label="のぶながの勝ちどき">のぶながが刀を上げて、勝ちどきをあげます。</canvas>
+      <p id="status" role="status">じゅんび中…</p>
+    </section>
+    <div class="controls">
+      <button id="play" disabled>動きをとめる</button>
+      <button id="replay" disabled>もう一度</button>
+      <button id="pose" disabled>もとの構えを見る</button>
+    </div>
+    <p class="note">刀と腕、口の形を描きかえた動きです。<br>タイトル画面に入れる前の確認用です。</p>
+    <footer><a href="../">ゲームにもどる</a></footer>
+  </main>
+  <script type="module" src="./title-cheer-v168.mjs"></script>
+</body>
+</html>
