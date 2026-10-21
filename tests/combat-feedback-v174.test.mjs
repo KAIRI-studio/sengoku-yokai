@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {Battle} from '../lane-engine-v174.mjs';
+import {Battle} from '../lane-engine-v175.mjs';
 import {Battle as PreviousBattle} from '../lane-engine-v100.mjs';
 
 test('presentation attribution preserves combat outcomes on all five stages',()=>{
