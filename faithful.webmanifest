@@ -1,1 +1,25 @@
-{"name": "せんごく ようかい 合戦", "short_name": "せんごく合戦", "lang": "ja", "start_url": "./", "scope": "./", "display": "standalone", "orientation": "landscape", "background_color": "#fff0d2", "theme_color": "#fff0d2", "icons": [{"src": "./assets/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any"}]}
+{
+  "name": "せんごく ようかい 合戦",
+  "short_name": "せんごく合戦",
+  "lang": "ja",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "landscape",
+  "background_color": "#fff0d2",
+  "theme_color": "#fff0d2",
+  "icons": [
+    {
+      "src": "./assets/app-icon-192-v178.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./assets/app-icon-512-v178.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
