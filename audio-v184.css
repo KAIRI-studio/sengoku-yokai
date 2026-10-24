@@ -1,0 +1,12 @@
+#title-sound{position:absolute;right:2cqw;top:2cqw;z-index:15;border:1px solid #a98b4d;border-radius:24px;padding:.6cqw 1.4cqw;background:#fff6dcf2;color:#3a5945;min-height:36px;font-size:clamp(12px,1.3cqw,18px);font-weight:850}
+#hub .audio-settings-button{margin-left:auto;color:#e8dfb5;border:1px solid #e4d4a75e;background:#ffffff0a;border-radius:20px;padding:5px 12px;min-height:34px;font-size:clamp(12px,1.05cqw,16px);font-weight:800;white-space:nowrap}
+#hub .audio-settings-button+.help-button{margin-left:0}
+#audio-settings{width:min(440px,90vw);max-height:90dvh;padding:0;border:2px solid #c7ac69;border-radius:18px;background:#fff7df;color:#31533f;box-shadow:0 15px 70px #061d2780;font-family:inherit;overflow-y:auto}
+#audio-settings::backdrop{background:#142e27b3;backdrop-filter:blur(4px)}
+#audio-settings form{padding:22px}#audio-settings header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;gap:15px}#audio-settings h2{font-size:21px;margin:0}
+#audio-settings button{cursor:pointer;font-family:inherit;font-weight:800;color:#3c523b;border:1px solid #b7a66a;background:#ffe08c;border-radius:9px;min-height:36px;padding:7px 15px}
+#audio-settings .audio-close{border:0;border-radius:50%;background:#ede7ca;font-size:22px;width:36px;line-height:1;padding:0}
+.audio-volume{display:grid;grid-template-columns:1fr auto;gap:9px 20px;margin:19px 0;font-size:17px;font-weight:800}.audio-volume output{font-size:15px;color:#8c723f;font-variant-numeric:tabular-nums}.audio-volume input{grid-column:1/-1;width:100%;margin:0;accent-color:#36664b;height:30px;touch-action:pan-x}
+.audio-mute{display:flex;align-items:center;gap:10px;padding:15px 0;font-size:15px;font-weight:700}.audio-mute input{width:21px;height:21px;accent-color:#36664b}
+#audio-settings .audio-done{width:100%;margin-top:10px;min-height:42px}
+@media(max-height:480px){#audio-settings form{padding:12px 20px}#audio-settings header{margin-bottom:5px}#audio-settings h2{font-size:18px}.audio-volume{margin:10px 0;gap:2px 15px;font-size:15px}.audio-mute{padding:6px 0}#audio-settings .audio-done{margin-top:3px;min-height:34px}}

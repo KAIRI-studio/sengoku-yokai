@@ -1,0 +1,122 @@
+[
+  {
+    "file": "botan.mp3",
+    "duration": 1.018776,
+    "bitrate": "75109",
+    "channels": 2,
+    "meanDB": -22.5,
+    "peakDB": -3.7,
+    "cue": "button",
+    "gainDB": -0.3,
+    "output": "assets/audio-v184/button.mp3",
+    "bytes": 12583
+  },
+  {
+    "file": "gatya.mp3",
+    "duration": 0.744,
+    "bitrate": "198193",
+    "channels": 2,
+    "meanDB": -24.2,
+    "peakDB": -8.0,
+    "cue": "gacha",
+    "gainDB": 4.0,
+    "output": "assets/audio-v184/gacha.mp3",
+    "bytes": 9449
+  },
+  {
+    "file": "home.mp3",
+    "duration": 162.742792,
+    "bitrate": "192334",
+    "channels": 2,
+    "meanDB": -14.3,
+    "peakDB": 0.0,
+    "cue": "home",
+    "gainDB": -4.0,
+    "output": "assets/audio-v184/home.mp3",
+    "bytes": 2279175
+  },
+  {
+    "file": "huseikai.mp3",
+    "duration": 0.548571,
+    "bitrate": "201118",
+    "channels": 2,
+    "meanDB": -25.8,
+    "peakDB": -10.6,
+    "cue": "wrong",
+    "gainDB": 5.8,
+    "output": "assets/audio-v184/wrong.mp3",
+    "bytes": 6941
+  },
+  {
+    "file": "kati.mp3",
+    "duration": 2.784,
+    "bitrate": "193655",
+    "channels": 2,
+    "meanDB": -20.9,
+    "peakDB": -5.4,
+    "cue": "win",
+    "gainDB": 0.9,
+    "output": "assets/audio-v184/win.mp3",
+    "bytes": 33899
+  },
+  {
+    "file": "kougeki2.mp3",
+    "duration": 1.032,
+    "bitrate": "196465",
+    "channels": 2,
+    "meanDB": -22.8,
+    "peakDB": -4.9,
+    "cue": "attack",
+    "gainDB": 0.9,
+    "output": "assets/audio-v184/attack.mp3",
+    "bytes": 12897
+  },
+  {
+    "file": "make.mp3",
+    "duration": 3.578776,
+    "bitrate": "193397",
+    "channels": 2,
+    "meanDB": -32.4,
+    "peakDB": -11.9,
+    "cue": "lose",
+    "gainDB": 7.9,
+    "output": "assets/audio-v184/lose.mp3",
+    "bytes": 43303
+  },
+  {
+    "file": "seikai.mp3",
+    "duration": 2.821224,
+    "bitrate": "193774",
+    "channels": 2,
+    "meanDB": -27.4,
+    "peakDB": -9.1,
+    "cue": "correct",
+    "gainDB": 5.1,
+    "output": "assets/audio-v184/correct.mp3",
+    "bytes": 34213
+  },
+  {
+    "file": "sentou.mp3",
+    "duration": 181.655458,
+    "bitrate": "192313",
+    "channels": 2,
+    "meanDB": -14.3,
+    "peakDB": 0.0,
+    "cue": "battle",
+    "gainDB": -4.0,
+    "output": "assets/audio-v184/battle.mp3",
+    "bytes": 2543953
+  },
+  {
+    "file": "シャキーン2.mp3",
+    "duration": 1.28,
+    "bitrate": "195912",
+    "channels": 2,
+    "meanDB": -18.4,
+    "peakDB": -5.8,
+    "cue": "skill",
+    "gainDB": -1.6,
+    "output": "assets/audio-v184/skill.mp3",
+    "bytes": 15718
+  }
+]
