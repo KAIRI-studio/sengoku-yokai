@@ -27,4 +27,3 @@ export function answerQuiz(roundId,index,choice){const r=data.quiz;if(!r||r.id!=
 export const getReviewIds=(level)=>[...data.reviewIds].filter(id=>!level||questionFor(id)?.level===level);
 export const getStageRecord=id=>data.records[id]?{...data.records[id]}:null;
 export function startReview(level='easy',random=Math.random){if(data.quiz&&data.quiz.answers.length<data.quiz.items.length)return getQuiz();const round=createReviewRound(getReviewIds(level),level,random);if(!round)return null;data.quiz=round;save();return getQuiz()}
-

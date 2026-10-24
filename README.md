@@ -92,3 +92,5 @@ Compact gacha panels fit above navigation. Formation details explain roles, reac
 - 敵本陣のHPに応じたひび割れ・欠け・落下する破片。設定が「視差効果を減らす」の場合は静的な損傷のみ。
 - 進行データの保存キー、所持キャラ、こばん、出現率は維持。音は今回の対象外。
 - 検証: `node --test tests/*.test.mjs`（113件）。画像は組み込み画像生成ツールで作成。プロンプト概要：戦国のちび武将2人とかっぱが金色の城下町で勝利を祝う、文字なしの横長オリジナルイラスト。
+
+勝利画面の実画面確認: ![Ver.1.1.65 victory](docs/v181-victory.jpg)
