@@ -83,3 +83,12 @@ Title characters now use the four battle walking frames and run left to right in
 
 ### v1.1.35
 Compact gacha panels fit above navigation. Formation details explain roles, reach, speed, attack intervals and actual special effects. Wrong quiz answers persist by grade band and can be retried in rounds of up to five; a correct answer clears the review item. Stage clear times and counts are saved from this version onward. Existing wallet, teams, ownership, quiz progress and clears use the unchanged save key.
+
+## Ver.1.1.65
+- ガチャの右側パネルは移動せず表示。新しいCSS URLで以前のキャッシュも更新。
+- 勝利時に次のステージを自動選択して保存。勝利画面から次の合戦へ直接出陣可能。
+- 戦闘速度 ×1/×2。シミュレーションは60Hzを維持し、カットイン・勝利演出・画面UIは実時間で表示。
+- 専用の祝勝イラストと光・紙吹雪・報酬カウントの勝利画面。
+- 敵本陣のHPに応じたひび割れ・欠け・落下する破片。設定が「視差効果を減らす」の場合は静的な損傷のみ。
+- 進行データの保存キー、所持キャラ、こばん、出現率は維持。音は今回の対象外。
+- 検証: `node --test tests/*.test.mjs`（113件）。画像は組み込み画像生成ツールで作成。プロンプト概要：戦国のちび武将2人とかっぱが金色の城下町で勝利を祝う、文字なしの横長オリジナルイラスト。
