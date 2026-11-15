@@ -8,7 +8,7 @@ import{readAutoDeploy,writeAutoDeploy,runAutoDeploy}from'./auto-deploy-v119.mjs'
 import{readAutoPreference,writeAutoPreference,fireAutoSpecial}from'./auto-special-v118.mjs';
 import{statusFor}from'./card-status-v118.mjs';
 import{statusArt}from'./status-art-v118.mjs';
-import './shell-layout-v115.mjs';
+import './shell-layout-v115.mjs?v=viewport-fit2';
 import{battleAssetPlan,imageLoader,loadBattleAssets}from'./battle-assets-v182.mjs';
 import{createBattleGuide}from'./battle-guide-v118.mjs';
 import{portrait}from'./portrait-v106.mjs';
@@ -40,7 +40,7 @@ const motionAllies=allies.map((d,i)=>({...d,uid:200+i,x:60+i*156,baseX:60+i*156,
 const motionEnemies=enemies.map((d,i)=>({...d,uid:210+i,x:250+i*240,baseX:250+i*240,side:-1,hp:d.hp,max:d.hp,charge:50,hit:0,walk:0}));let motionUnits=motionAllies;
 function announce(t){$('#announcement').textContent=t}
 function resize(){const r=game.getBoundingClientRect(),d=Math.min(devicePixelRatio||1,2);canvas.width=Math.round(r.width*d);canvas.height=Math.round(r.height*d);draw()}
-if('ResizeObserver'in window)new ResizeObserver(resize).observe(game);else window.addEventListener('resize',resize);
+game.addEventListener('gameviewportchange',resize);
 function frameOf(u){if(mode==='welcome')return u.frame;if(mode==='motion'){const phase=(motionTime+u.uid*.13)%4.3;return phase<2.3?Math.floor(phase*9)%4:attackFrame((phase-2.3)%1)}if(u.action)return attackFrame(u.action.elapsed);if(u.pose>0)return 6;if(u.moving)return Math.floor(u.walk*9)%4;return 7}
 function attackFrame(t){return t<.13?4:t<.28?5:t<.46?6:7}
 function sprite(u,opacity=1){const im=sheets[u.id],m=meta[u.id];if(!im||!m)return;const f=frameOf(u),c=m.width/4,h=m.height/2,scale=u.size/(m.scaleWidth||c),foot=m.feet[f],anchor=m.anchor,sy=Math.floor(f/4)*h,sx=f%4*c;let lunge=0;if(u.action){const t=u.action.elapsed;lunge=t<.16?-2*Math.sin(t/.16*Math.PI):t<.46?8*Math.sin((t-.16)/.3*Math.PI):0}if(mode==='motion'&&f===6)lunge=6;const recoil=!reducedMotion&&u.hit>0?-u.side*3*Math.sin((.22-u.hit)/.22*Math.PI):0;const x=u.x-anchor*scale+lunge*u.side+recoil,y=GROUND-foot*scale;

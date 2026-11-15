@@ -4,3 +4,10 @@ test('rapid taps suppress smart zoom and retain exactly one second activation',(
 test('repeated taps on empty scenery suppress zoom without phantom button clicks',()=>{const f=fixture();f.tap(0,f.blank);assert.equal(f.tap(140,f.blank),true);assert.equal(f.clicks(),0)});
 test('swipes, long presses and pinch gestures do not become a double tap',()=>{const f=fixture();f.tap(0);f.event('touchstart',100);f.event('touchmove',120,f.button,40);assert.equal(f.event('touchend',150),false);f.tap(200);f.event('touchstart',280,f.button,10,[{},{}]);assert.equal(f.event('touchend',320),false);f.tap(400);f.event('touchstart',500);assert.equal(f.event('touchend',1000),false);assert.equal(f.clicks(),0)});
 test('different controls, disabled buttons and editable controls keep their own behavior',()=>{const f=fixture(),other={...f.button};other.closest=s=>s.includes('input')?null:other;f.tap(0);assert.equal(f.tap(140,other,60),false);f.button.disabled=true;f.tap(500);assert.equal(f.tap(640),true);assert.equal(f.clicks(),0);const input={closest:s=>s.includes('input')?input:null};f.tap(800,input);assert.equal(f.tap(940,input),false)});
+test('browser double click, selection and drag defaults are blocked outside editable controls',()=>{
+ const {event,blank}=fixture(),input={closest:()=>input};
+ for(const type of ['dblclick','selectstart','dragstart','contextmenu']){
+  assert.equal(event(type,0,blank),true);
+  assert.equal(event(type,0,input),false);
+ }
+});

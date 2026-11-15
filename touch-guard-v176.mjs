@@ -29,6 +29,8 @@ export function installTouchGuard(surface){
    if(button&&!button.disabled)button.click();
   }
  },{passive:false});
- surface.addEventListener('dblclick',e=>{if(!editable(e.target)&&e.cancelable)e.preventDefault()});
+ for(const name of ['dblclick','contextmenu','selectstart','dragstart']){
+  surface.addEventListener(name,e=>{if(!editable(e.target)&&e.cancelable)e.preventDefault()});
+ }
 }
 if(typeof document!=='undefined')installTouchGuard(document.documentElement);

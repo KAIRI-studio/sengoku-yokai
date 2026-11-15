@@ -5,3 +5,12 @@ export function viewportLayout({width,height,left=0,top=0,insets={}}){
  const sideWidth=Math.max(0,(w-gameWidth)/2),gameLeft=left+sideWidth,gameTop=top+safeTop+(availableHeight-gameHeight)/2;
  return {game:{left:gameLeft,top:gameTop,width:gameWidth,height:gameHeight},left:{left,top:gameTop,width:sideWidth,height:gameHeight},right:{left:gameLeft+gameWidth,top:gameTop,width:sideWidth,height:gameHeight}};
 }
+
+// Keep fixed-size controls in proportion on small screens as well as cqw-based art.
+const minimumCanvasWidth = 900;
+
+export function viewportCanvas(bounds) {
+ const width = Math.max(minimumCanvasWidth, bounds.width);
+ const scale = bounds.width / width;
+ return {width, height: bounds.height / scale, scale};
+}
