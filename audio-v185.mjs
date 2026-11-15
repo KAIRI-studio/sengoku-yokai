@@ -1,15 +1,16 @@
 const KEY='sengoku-yokai-audio-v184';
+export const MASTER_GAIN=.8;
 export const DEFAULT_AUDIO=Object.freeze({bgm:.25,se:.65,muted:false});
-export const AUDIO_FILES=Object.freeze(Object.fromEntries(['home','battle','button','attack','skill','gacha','correct','wrong','win','lose'].map(name=>[name,new URL(`./assets/audio-v184/${name}.mp3`,import.meta.url).href])));
+export const AUDIO_FILES=Object.freeze(Object.fromEntries(['home','battle','button','attack','skill','gacha','correct','wrong','win','lose'].map(name=>[name,new URL(`./assets/audio-v184/${name==='correct'?'correct-centered':name}.mp3`,import.meta.url).href])));
 export const CUES=Object.freeze({
- button:{gain:.72,gap:55,limit:2,group:'ui',age:600,duration:.8},
+ button:{gain:.68,gap:55,limit:2,group:'ui',age:600,duration:.8},
  attack:{gain:.5,gap:160,limit:2,group:'battle',age:180,duration:.55},
- skill:{gain:.95,gap:250,limit:1,group:'battle',age:1200,duck:.4,duckMs:1350},
- gacha:{gain:.95,gap:250,limit:1,group:'ui',age:1200,duck:.6,duckMs:1000},
- correct:{gain:.95,gap:250,limit:1,group:'ui',age:1000,duck:.6,duckMs:1200},
- wrong:{gain:.85,gap:250,limit:1,group:'ui',age:1000,duck:.7,duckMs:700},
- win:{gain:1,gap:500,limit:1,group:'result',age:2500},
- lose:{gain:1,gap:500,limit:1,group:'result',age:2500}
+ skill:{gain:.66,gap:250,limit:1,group:'battle',age:1200,duck:.4,duckMs:1350},
+ gacha:{gain:.8,gap:250,limit:1,group:'ui',age:1200,duck:.6,duckMs:1000},
+ correct:{gain:.78,gap:250,limit:1,group:'ui',age:1000,duck:.6,duckMs:1200},
+ wrong:{gain:.78,gap:250,limit:1,group:'ui',age:1000,duck:.7,duckMs:700},
+ win:{gain:.88,gap:500,limit:1,group:'result',age:2500},
+ lose:{gain:.88,gap:500,limit:1,group:'result',age:2500}
 });
 const clamp=(n,fallback)=>Number.isFinite(n)?Math.max(0,Math.min(1,n)):fallback;
 export function readAudioSettings(storage){try{const x=JSON.parse(storage?.getItem(KEY)||'null');if(x&&typeof x==='object')return{bgm:clamp(x.bgm,DEFAULT_AUDIO.bgm),se:clamp(x.se,DEFAULT_AUDIO.se),muted:x.muted===true}}catch{}return{...DEFAULT_AUDIO}}
@@ -25,7 +26,7 @@ export class GameAudio{
   configurePlaybackSession();
   if(this.unlocking&&this.ctx?.state==='running')return this.unlocking;
   this.unlocking=(async()=>{try{
-   if(!this.ctx){this.ctx=this.factory();if(!this.ctx)return false;this.bgmGain=this.ctx.createGain();this.duckGain=this.ctx.createGain();this.seGain=this.ctx.createGain();const limiter=this.ctx.createDynamicsCompressor?.();if(limiter){limiter.threshold.value=-7;limiter.knee.value=9;limiter.ratio.value=12;limiter.attack.value=.004;limiter.release.value=.12;limiter.connect(this.ctx.destination)}this.bgmGain.connect(this.duckGain);this.duckGain.connect(limiter||this.ctx.destination);this.seGain.connect(limiter||this.ctx.destination);this.applyVolumes()}
+   if(!this.ctx){this.ctx=this.factory();if(!this.ctx)return false;this.bgmGain=this.ctx.createGain();this.duckGain=this.ctx.createGain();this.seGain=this.ctx.createGain();const master=this.ctx.createGain();master.gain.value=MASTER_GAIN;master.connect(this.ctx.destination);const limiter=this.ctx.createDynamicsCompressor?.();if(limiter){limiter.threshold.value=-7;limiter.knee.value=9;limiter.ratio.value=12;limiter.attack.value=.004;limiter.release.value=.12;limiter.connect(master)}this.bgmGain.connect(this.duckGain);this.duckGain.connect(limiter||master);this.seGain.connect(limiter||master);this.applyVolumes()}
    const resumed=this.ctx.resume();
    if(!this.primed&&this.ctx.createBuffer){const source=this.ctx.createBufferSource();source.buffer=this.ctx.createBuffer(1,1,this.ctx.sampleRate||44100);source.connect(this.ctx.destination);source.onended=()=>source.disconnect();source.start(0);this.primed=true}
    await resumed;this.unlocked=this.ctx.state==='running';if(!this.unlocked)return false;void this.syncMusic();if(this.preload)void Promise.allSettled(Object.keys(CUES).map(n=>this.buffer(n)));return true;

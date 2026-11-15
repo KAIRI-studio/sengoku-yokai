@@ -1,4 +1,4 @@
-import{gameAudio}from'./audio-v185.mjs';
+import{gameAudio}from'./audio-v185.mjs?v=balance1';
 import{spriteFrame}from'./sprite-frames-v183.mjs';
 import{runBattleFrame,FortressDamage}from'./battle-experience-v181.mjs';
 import{particles,countUp}from'./presentation-v166.mjs';
@@ -13,7 +13,7 @@ import{battleAssetPlan,imageLoader,loadBattleAssets}from'./battle-assets-v182.mj
 import{createBattleGuide}from'./battle-guide-v118.mjs';
 import{portrait}from'./portrait-v106.mjs';
 import{getStage}from'./expansion-v182.mjs';
-import{getLoadout,creditWin,stageUnlocked,getStageRecord}from'./game-state-v187.mjs';
+import{getLoadout,creditWin,stageUnlocked,getStageRecord}from'./game-state-v187.mjs?v=balance1';
 import{Battle,allies,enemies,WORLD_WIDTH,HOME_X,ENEMY_X}from'./lane-engine-v182.mjs';
 
 // Use geometric icons rather than font glyphs so circular controls share an exact centre.

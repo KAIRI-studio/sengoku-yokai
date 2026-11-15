@@ -1,4 +1,4 @@
-import{gameAudio}from'./audio-v185.mjs';
+import{gameAudio}from'./audio-v185.mjs?v=balance1';
 export function mountAudioSettings(){
  const dialog=document.createElement('dialog');dialog.id='audio-settings';dialog.setAttribute('aria-labelledby','audio-title');dialog.innerHTML=`<form method="dialog"><header><h2 id="audio-title">おとの せってい</h2><button class="audio-close" aria-label="とじる">×</button></header><label class="audio-volume" for="bgm-volume"><span>BGM</span><output id="bgm-value"></output><input id="bgm-volume" type="range" min="0" max="100" step="1"></label><label class="audio-volume" for="se-volume"><span>こうかおん</span><output id="se-value"></output><input id="se-volume" type="range" min="0" max="100" step="1"></label><label class="audio-mute"><input id="audio-muted" type="checkbox"><span>すべての おとを けす</span></label><button class="audio-done" id="audio-test" type="button">おとを ためす</button><button class="audio-done" value="close">とじる</button></form>`;document.body.append(dialog);
  const bgm=dialog.querySelector('#bgm-volume'),se=dialog.querySelector('#se-volume'),muted=dialog.querySelector('#audio-muted');

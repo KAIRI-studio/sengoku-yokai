@@ -1,5 +1,5 @@
-import{gameAudio}from'./audio-v185.mjs';
-import{getQuiz,startQuiz,answerQuiz,storageOK,getReviewIds,startReview}from'./game-state-v187.mjs';
+import{gameAudio}from'./audio-v185.mjs?v=balance1';
+import{getQuiz,startQuiz,answerQuiz,storageOK,getReviewIds,startReview}from'./game-state-v187.mjs?v=balance1';
 import{questionFor,roundScore,ROUND_SIZE,REWARD,LEVELS,SOURCES,QUESTION_NOTE}from'./quiz-bank-v178.mjs';
 const $=s=>document.querySelector(s);
 const mentor=message=>`<aside class="quiz-mentor" aria-label="案内役のぶなが"><img src="./assets/standing-nobunaga-v111.webp" alt="" draggable="false"><strong>のぶなが</strong><p>${message}</p></aside>`;
