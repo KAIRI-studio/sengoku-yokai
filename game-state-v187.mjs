@@ -14,7 +14,12 @@ function save(){try{localStorage.setItem(KEY,JSON.stringify(data))}catch{storage
 export const snapshot=()=>structuredClone({...data,collected:[...data.owned],owned:TEST_UNLOCKS?[...ids]:data.owned});
 export const getLoadout=()=>[...data.team];
 export function setTeam(team){if(!Array.isArray(team)||team.length>6||team[0]!=='ashigaru'||new Set(team).size!==team.length||team.some(id=>!(TEST_UNLOCKS?ids:data.owned).includes(id)))return false;data.team=[...team];save();return true}
-export function stageUnlocked(id){return Number.isInteger(id)&&id>=1&&id<=5&&(TEST_UNLOCKS||Array.from({length:id-1},(_,i)=>i+1).every(previous=>data.cleared.includes(previous)))}
+function validStageId(id){return Number.isInteger(id)&&id>=1&&id<=5}
+function previousStagesCleared(id,cleared){
+ for(let previous=1;previous<id;previous++)if(!cleared.includes(previous))return false;
+ return true;
+}
+export function stageUnlocked(id){return validStageId(id)&&(TEST_UNLOCKS||previousStagesCleared(id,data.cleared))}
 export function selectStage(id){if(!stageUnlocked(id))return false;data.selectedStage=id;save();return true}
 export function creditWin(stageId=1,seconds){if(!stageUnlocked(stageId))return 0;const reward=getStage(stageId).reward;data.records=recordClear(data.records,stageId,seconds);data.coins+=reward;data.wins++;if(!data.cleared.includes(stageId))data.cleared.push(stageId);if(stageId<5&&stageUnlocked(stageId+1))data.selectedStage=stageId+1;save();return reward}
 export const rates=Object.freeze({legend:4,rare:27,normal:69});
@@ -33,7 +38,7 @@ export function startReview(level='easy',random=Math.random){if(data.quiz&&data.
 export function exportProgress(){return JSON.stringify({game:'sengoku-yokai',version:1,savedAt:new Date().toISOString(),progress:data},null,2)}
 export function validateProgress(text){
  const x=JSON.parse(text);if(x.game!=='sengoku-yokai'||x.version!==1)throw Error('このゲームのバックアップを えらんでね');const p=x.progress;
- if(!p||p.legendRulesVersion!==1||!Number.isSafeInteger(p.coins)||p.coins<0||p.coins>1e9||!Number.isSafeInteger(p.wins)||p.wins<0||!Array.isArray(p.owned)||p.owned.length>ids.length||p.owned.some(id=>!ids.includes(id))||!starter.every(id=>p.owned.includes(id))||new Set(p.owned).size!==p.owned.length||!Array.isArray(p.team)||!p.team.length||p.team.length>6||p.team[0]!=='ashigaru'||new Set(p.team).size!==p.team.length||p.team.some(id=>!p.owned.includes(id))||!Array.isArray(p.cleared)||p.cleared.length>5||p.cleared.some((id,i)=>id!==i+1)||!Number.isInteger(p.selectedStage)||p.selectedStage<1||p.selectedStage>Math.min(5,p.cleared.length+1))throw Error('バックアップの中身を かくにんできませんでした');
+ if(!p||p.legendRulesVersion!==1||!Number.isSafeInteger(p.coins)||p.coins<0||p.coins>1e9||!Number.isSafeInteger(p.wins)||p.wins<0||!Array.isArray(p.owned)||p.owned.length>ids.length||p.owned.some(id=>!ids.includes(id))||!starter.every(id=>p.owned.includes(id))||new Set(p.owned).size!==p.owned.length||!Array.isArray(p.team)||!p.team.length||p.team.length>6||p.team[0]!=='ashigaru'||new Set(p.team).size!==p.team.length||p.team.some(id=>!p.owned.includes(id))||!Array.isArray(p.cleared)||p.cleared.length>5||!p.cleared.every(validStageId)||new Set(p.cleared).size!==p.cleared.length||!validStageId(p.selectedStage)||!previousStagesCleared(p.selectedStage,p.cleared))throw Error('バックアップの中身を かくにんできませんでした');
  return {legendRulesVersion:1,coins:p.coins,wins:p.wins,owned:[...p.owned],team:[...p.team],cleared:[...p.cleared],selectedStage:p.selectedStage,pity:Number.isInteger(p.pity)?Math.max(0,Math.min(MAX_PITY,p.pity)):0,quiz:normalizeRound(p.quiz),reviewIds:Array.isArray(p.reviewIds)?[...new Set(p.reviewIds.filter(id=>!!questionFor(id)))]:[],records:normalizeRecords(p.records)};
 }
 export function restoreProgress(text){const next=validateProgress(text);try{localStorage.setItem(KEY+'-before-restore',JSON.stringify(data));localStorage.setItem(KEY,JSON.stringify(next))}catch{throw Error('ほぞんできませんでした。今の きろくは かえていません')}data=next;storageOK=true;return snapshot()}
