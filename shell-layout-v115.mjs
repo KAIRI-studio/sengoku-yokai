@@ -2,14 +2,22 @@ import{viewportLayout,viewportCanvas}from'./viewport-v107.mjs?v=viewport-fit2';
 const game=document.querySelector('#game');
 // Fit the complete 16:9 scene into the actual visible browser area.
 // No fullscreen permission, installation or orientation lock is required.
+const mobileBrowser=window.matchMedia('(pointer: coarse) and (display-mode: browser)').matches &&
+  navigator.standalone!==true && CSS.supports('height','100svh');
+const stableViewport=mobileBrowser?document.createElement('div'):null;
+if(stableViewport){
+  stableViewport.style.cssText='position:fixed;top:0;left:0;width:0;height:100svh;visibility:hidden;pointer-events:none';
+  document.documentElement.append(stableViewport);
+}
 let viewportFrame=0, lastSize='';
 function fitViewport(){
  viewportFrame=0;
  const viewport=window.visualViewport;
  if(viewport&&Math.abs(viewport.scale-1)>.01)return;
- const width=viewport?.width||window.innerWidth,height=viewport?.height||window.innerHeight;
+ const width=(stableViewport&&document.documentElement.clientWidth)||viewport?.width||window.innerWidth;
+ const height=(stableViewport&&parseFloat(getComputedStyle(stableViewport).height))||viewport?.height||window.innerHeight;
  const padding=getComputedStyle(document.body),insets={left:parseFloat(padding.paddingLeft)||0,right:parseFloat(padding.paddingRight)||0,top:parseFloat(padding.paddingTop)||0,bottom:parseFloat(padding.paddingBottom)||0};
- const layout=viewportLayout({width,height,left:viewport?.offsetLeft||0,top:viewport?.offsetTop||0,insets});
+ const layout=viewportLayout({width,height,left:stableViewport?0:viewport?.offsetLeft||0,top:stableViewport?0:viewport?.offsetTop||0,insets});
  document.documentElement.style.setProperty('--visible-height',height+'px');
  const canvas=viewportCanvas(layout.game);
  for(const [element,bounds]of [[game,layout.game],[document.querySelector('#side-brand'),layout.left],[document.querySelector('#side-guide'),layout.right]]){

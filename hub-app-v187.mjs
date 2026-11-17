@@ -6,7 +6,7 @@ import './touch-guard-v176.mjs?v=viewport-fit2';
 import{particles,rewardTheme,summonTiming,rewardContent}from'./presentation-v166.mjs';
 import{companionInfo,formatTime}from'./companion-info-v144.mjs';
 import{mountHomeAura}from'./home-aura-v173.mjs';
-import './shell-layout-v115.mjs?v=viewport-fit2';
+import './shell-layout-v115.mjs?v=viewport-stable1';
 import './title-motion-v125.mjs';
 import{openQuiz}from'./quiz-ui-v187.mjs?v=balance1';
 import{portrait}from'./portrait-v106.mjs';
